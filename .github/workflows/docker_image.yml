@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  # Using pattern as described in https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-filters
+  pull_request:
+    branches: 
+      - main
+  push:
+    branches: 
+      - main
+  # Allow mannually trigger
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - run: echo "Job being triggered by ${{ github.event_name }} event"
+    - name: Build the Codespaces container image
+      run: docker build . --file .devcontainer/Dockerfile
+    - run: echo "Job status is ${{ job.status }}."
