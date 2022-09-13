@@ -1,20 +1,25 @@
 name: Docker Image CI
 
+env:
+  AZURE_WEBAPP_NAME: your-app-name  # set this to the name of your Azure Web App
+  PYTHON_VERSION: '3.10'              # set this to the Python version to use
+
 on:
   # Using pattern as described in https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-filters
   pull_request:
     branches: 
       - main
   push:
+  
     branches: 
       - main
   # Allow mannually trigger
   workflow_dispatch:
 
+
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -22,4 +27,40 @@ jobs:
     - run: echo "Job being triggered by ${{ github.event_name }} event"
     - name: Build the Codespaces container image
       run: docker build . --file .devcontainer/Dockerfile
+    - name: Set up Python version
+        uses: actions/setup-python@v3.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+    - name: Create and start virtual environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+    - name: Install dependencies
+        run: pip install -r requirements.txt
+    
+
     - run: echo "Job status is ${{ job.status }}."
+
+  deploy:
+    permissions:
+      contents: none
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Development'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: python-app
+          path: .
+          
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}

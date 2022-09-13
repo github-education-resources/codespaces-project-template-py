@@ -28,3 +28,10 @@ def generate(body: Body):
     """
     tmpl = body.strftime or '%Y-%m-%dT%H:%M:%S.%f'
     return {'date': datetime.now().strftime(tmpl)}
+
+@app.post('/azure_cognitive')
+def azure_cognitive(body: Body):
+    """
+    Put here your code to create an Azure Cognitive service endpoint!
+    """
+    return {'result': None} # Change None
