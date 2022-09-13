@@ -28,16 +28,16 @@ jobs:
     - name: Build the Codespaces container image
       run: docker build . --file .devcontainer/Dockerfile
     - name: Set up Python version
-        uses: actions/setup-python@v3.0.0
-        with:
+      uses: actions/setup-python@v3.0.0
+      with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: 'pip'
     - name: Create and start virtual environment
-        run: |
+      run: |
           python -m venv venv
           source venv/bin/activate
     - name: Install dependencies
-        run: pip install -r requirements.txt
+      run: pip install -r requirements.txt
     
 
     - run: echo "Job status is ${{ job.status }}."
