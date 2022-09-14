@@ -5,8 +5,9 @@ env:
   PYTHON_VERSION: '3.10'              # set this to the Python version to use
 
 on:
-  push:
-    branches: [ "main" ]
+  # uncomment the next two lines to deploy on every push to main
+  #push: 
+  #  branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -63,4 +64,4 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          startup-file: "uvicorn --host 0.0.0.0 webapp/main:app"
+          startup-file: "uvicorn --host 0.0.0.0 webapp.main:app"
