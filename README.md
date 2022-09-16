@@ -124,5 +124,4 @@ TODO
 ## Resources
 
 - [Fastapi](https://fastapi.tiangolo.com/)
-- [HuggingFace](https://huggingface.co/)
 - [Codespaces](https://github.com/features/codespaces)
