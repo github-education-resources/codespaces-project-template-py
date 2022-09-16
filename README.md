@@ -3,7 +3,7 @@
 Here's a GitHub repository containing the following:
 
 - A Python API built in [Fastapi](https://fastapi.tiangolo.com/) framework.
-- A machine learning model using [HuggingFace](https://huggingface.co/).
+- A setup to run as a devcontainer via Codespaces.
 
 It's also ready to be used with [Codespaces](https://github.com/features/codespaces) a developer environment running in the cloud.
 
@@ -14,6 +14,7 @@ Thanks to Codespaces, you can work on your projects without having Visual Studio
 ## What's in it
 
 - `/webapp` in this directory is your API, built in the Fastapi framework.
+- `./devcontainer/devcontainer.json`, a devcontainer configuration file that decided things like runtime versions, installed extensions and Visual Studio Code settings and more.
 
 ## -1- Run it
 
@@ -114,7 +115,11 @@ To find the unique identifier of an extension:
 
 ## How to deploy
 
-TBD
+TODO
+
+## Adding Ci/CD
+
+TODO
 
 ## Resources
 
