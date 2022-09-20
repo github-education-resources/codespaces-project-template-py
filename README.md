@@ -1,35 +1,129 @@
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=526682400)
 
-# Project
+# Python RESTful API for use with GitHub Codespaces
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+Here's a GitHub repository containing the following:
 
-As the maintainer of this project, please make a few updates:
+- A Python API built in [Fastapi](https://fastapi.tiangolo.com/) framework.
+- A setup to run as a devcontainer via Codespaces.
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+It's also ready to be used with [Codespaces](https://github.com/features/codespaces) a developer environment running in the cloud.
 
-## Contributing
+## For students
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+Thanks to Codespaces, you can work on your projects without having Visual Studio Code installed locally.
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+Using Codespaces you get Visual Studio code in the cloud, using a so called developer container. Like Visual Studio code installed locally, in this cloud version, you can install extensions, and use a terminal.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+You can also configure your developer container to run a specific runtime and have it boot up with your favorite extensions.
 
-## Trademarks
+## What's in it
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+- `/webapp` in this directory is your API, built in the Fastapi framework.
+- `./devcontainer/devcontainer.json`, a devcontainer configuration file that decided things like runtime versions, installed extensions and Visual Studio Code settings and more.
+
+## -1- Run it
+
+To run what's in this repo, you need to first start a Codespaces instance.
+
+1. Navigate to the main page of the newly created repository.
+1. Under the repository name, use the Code drop-down menu, and in the Codespaces tab, select "Create codespace on main".
+   ![Create codespace](https://docs.github.com/assets/cb-138303/images/help/codespaces/new-codespace-button.png)
+1. Creating codespace
+
+   ![Creating codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_build.png)
+
+Next, we will run our app.
+
+## -2- Inspect your codespaces environment
+
+What you have at this point is a pre-configured environment where all the runtimes and libraries you need are already installed - a 0 config experience.
+
+> This environment will run the same regardless of whether your students are on Windows, macOS or Linux.
+
+## -3- Run API
+ 
+1. Open up a terminal window by opening up the command palette (Ctrl-Shift-P or Cmd-Shift-P) and then select "Open new Terminal" command.
+
+1. Run `uvicorn` in the console, it will start up your API:
+
+    ```console
+    uvicorn --host 0.0.0.0 webapp.main:app --reload
+    ```
+
+    You should see output similar to:
+
+    ```output
+    INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+    INFO:     Started reloader process [28720]
+    INFO:     Started server process [28722]
+    INFO:     Waiting for application startup.
+    INFO:     Application startup complete.
+    ```
+
+## Challenges
+
+You can change your environment. Let us take you through two different challenges that you are likely to want to do.
+
+### -1- Change Python runtime
+
+Let's say you want to change what version of Python is installed. This is something you can control.
+
+Open *.devcontainer/devcontainer.json* and replace the following section:
+
+```json
+"VARIANT": "3.8-bullseye"
+```
+
+with the following instruction:
+
+```json
+"VARIANT": "3.9-bullseye"
+```
+
+this change will use Python 3.9 instead of 3.8.
+
+### -2- Add extension
+
+Your environment comes with preinstalled extensions. You can change which extensions your codespaces environment starts with, here's how:
+
+1. Open file *.devcontainer/devcontainer.json* and locate the following JSON element **extensions**:
+
+   ```json
+   "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance"
+   ]
+   ```
+
+1. Add the following entry to **the extensions** list and add a comma on the previous extension:
+
+   ```json
+   "codespaces-Contrib.codeswing"
+   ```
+  
+   What you did above was to add the unique identifier of an extension of the [CodeSwing extension](https://marketplace.visualstudio.com/items?itemName=codespaces-Contrib.codeswing). This will let Codespaces know that this extension should be pre-installed upon startup.
+
+   Remainder: When you change any configuration on the json, a box will appear after saving.
+
+   ![Recreating codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
+
+   Click on rebuild. Wait for your codespace to rebuild the VS Code environment.
+
+To find the unique identifier of an extension:
+
+- Navigate to the extension's web page, like so <https://marketplace.visualstudio.com/items?itemName=codespaces-Contrib.codeswing>
+- Locate the *Unique Identifier* field under **More info** section on your right side.
+
+## How to deploy
+
+TODO
+
+## Adding Ci/CD
+
+TODO
+
+## Resources
+
+- [Fastapi](https://fastapi.tiangolo.com/)
+- [Codespaces](https://github.com/features/codespaces)
