@@ -1,4 +1,6 @@
-# Project
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=526682400)
+
+# Python RESTful API for use with GitHub Codespaces
 
 Here's a GitHub repository containing the following:
 
@@ -9,7 +11,11 @@ It's also ready to be used with [Codespaces](https://github.com/features/codespa
 
 ## For students
 
-Thanks to Codespaces, you can work on your projects without having Visual Studio Code installed. You can install extensions, and use a terminal. You can also configure your developer container so it runs a specific runtime or boots up with your favorite extensions.
+Thanks to Codespaces, you can work on your projects without having Visual Studio Code installed locally.
+
+Using Codespaces you get Visual Studio code in the cloud, using a so called developer container. Like Visual Studio code installed locally, in this cloud version, you can install extensions, and use a terminal.
+
+You can also configure your developer container to run a specific runtime and have it boot up with your favorite extensions.
 
 ## What's in it
 
@@ -36,20 +42,16 @@ What you have at this point is a pre-configured environment where all the runtim
 > This environment will run the same regardless of whether your students are on Windows, macOS or Linux.
 
 ## -3- Run API
-
-1. Run `pip install`, to install the needed dependencies
-
-    ```console
-    pip install -r requirements.txt
-    ```
+ 
+1. Open up a terminal window by opening up the command palette (Ctrl-Shift-P or Cmd-Shift-P) and then select "Open new Terminal" command.
 
 1. Run `uvicorn` in the console, it will start up your API:
 
     ```console
-    uvicorn main:app --reload
+    uvicorn --host 0.0.0.0 webapp.main:app --reload
     ```
 
-    You should see outpput similar to:
+    You should see output similar to:
 
     ```output
     INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
@@ -104,7 +106,7 @@ Your environment comes with preinstalled extensions. You can change which extens
 
    Remainder: When you change any configuration on the json, a box will appear after saving.
 
-   ![Reacreating codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
+   ![Recreating codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
 
    Click on rebuild. Wait for your codespace to rebuild the VS Code environment.
 
