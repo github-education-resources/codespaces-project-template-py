@@ -126,7 +126,8 @@ Your environment comes with preinstalled extensions. You can change which extens
 
    Remainder: When you change any configuration on the json, a box will appear after saving.
 
-   ![Reacreating codespace](./images/Codespace_rebuild.png)
+   ![Recreating codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
+
 
    Click on rebuild. Wait for your codespace to rebuild the VS Code environment.
 
