@@ -9,6 +9,12 @@ Here's a GitHub repository containing the following:
 
 It's also ready to be used with [Codespaces](https://github.com/features/codespaces) a developer environment running in the cloud.
 
+<details>
+   <summary><b>🎥 Watch the video tutorial to learn more about Codespaces</b></summary>
+
+   [![Codespaces Tutorial](https://img.youtube.com/vi/ozuDPmcC1io/0.jpg)](https://aka.ms/CodespacesVideoTutorial "Codespaces Tutorial")
+</details>
+
 ## For students
 
 Thanks to Codespaces, you can work on your projects without having Visual Studio Code installed locally.
