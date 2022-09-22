@@ -1,4 +1,6 @@
-from datetime import datetime
+import os
+import base64
+from typing import Union
 from os.path import dirname, abspath, join
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
@@ -11,8 +13,9 @@ static_path = join(current_dir, "static")
 app = FastAPI()
 app.mount("/ui", StaticFiles(directory=static_path), name="ui")
 
+
 class Body(BaseModel):
-    strftime: str
+    length: Union[int, None] = 20
 
 
 @app.get('/')
@@ -24,15 +27,11 @@ def root():
 @app.post('/generate')
 def generate(body: Body):
     """
-    Generate the current time given a strftime template. For example:
-    '%Y-%m-%dT%H:%M:%S.%f'
-    """
-    tmpl = body.strftime or '%Y-%m-%dT%H:%M:%S.%f'
-    return {'date': datetime.now().strftime(tmpl)}
+    Generate a strong password of twenty characters by default. Example POST request body:
 
-@app.post('/azure_cognitive')
-def azure_cognitive(body: Body):
+    {
+        "length": 20
+    }
     """
-    Put here your code to create an Azure Cognitive service endpoint!
-    """
-    return {'result': None} # Change None
+    string = base64.b64encode(os.urandom(64))[:body.length].decode('utf-8')
+    return {'password': string}
