@@ -152,24 +152,24 @@ First, using free resources with an Azure subscription. Using one of these to de
 
 Now, let's create our Azure resources.
 
-1. Open an [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-0000-alfredodeza) to use the `az` cli. Use bash for this guide
-1. Create a *Resource Group*:
+- Open an [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-0000-alfredodeza) to use the `az` cli. Use bash for this guide
+- Create a *Resource Group*:
 ```
 az group create --name demo-fastapi --location "East US"
 ```
-1. Create the **FREE** App Service Plan:
+- Create the **FREE** App Service Plan:
 ```
 az appservice plan create --name "demo-fastapi" --resource-group demo-fastapi --is-linux --sku FREE
 ```
-1. Create a random identifier for a unique webapp name:
+- Create a random identifier for a unique webapp name:
 ```
 let "randomIdentifier=$RANDOM*$RANDOM"
 ```
-1. Create the web app with a placeholder container using the `randomIdentifier` from before
+- Create the web app with a placeholder container using the `randomIdentifier` from before
 ```
 az webapp create --name "demo-fastapi-$randomIdentifier" --resource-group demo-fastapi --plan demo-fastapi --runtime "PYTHON:3.9"
 ```
-1. Head to the [App Service](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) and confirm that your service is up and running
+- Head to the [App Service](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) and confirm that your service is up and running
 
 ### Create an Azure Service Principal
 
