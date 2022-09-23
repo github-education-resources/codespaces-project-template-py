@@ -152,7 +152,7 @@ First, using free resources with an Azure subscription. Using one of these to de
 
 Now, let's create our Azure resources.
 
-- Open an [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-0000-alfredodeza) to use the `az` cli. Use bash for this guide
+- Open an [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-77460-alfredodeza) to use the `az` cli. Use bash for this guide
 - Create a *Resource Group*:
 ```
 az group create --name demo-fastapi --location "East US"
@@ -175,7 +175,7 @@ az webapp create --name "demo-fastapi-$randomIdentifier" --resource-group demo-f
 
 Now, the following steps:
 
-1. The Azure subscription ID [find it here](https://portal.azure.com/#view/Microsoft_Azure_Billing/SubscriptionsBlade) or [follow this guide](https://docs.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id)
+1. The Azure subscription ID [find it here](https://portal.azure.com/#view/Microsoft_Azure_Billing/SubscriptionsBlade?WT.mc_id=academic-77460-alfredodeza) or [follow this guide](https://docs.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id?WT.mc_id=academic-77460-alfredodeza)
 1. A Service Principal with the following details the AppID, password, and tenant information. Set the proper role access using the following command (use a real subscription id and replace it):
 
 ```
@@ -186,13 +186,13 @@ Capture the output and add it as a [repository secret](/../../settings/secrets/a
 
 ### Generate a PAT
 
-The access token will need to be added as an Action secret. [Create one](https://github.com/settings/tokens/new?description=Azure+Container+Apps+access&scopes=write:packages) with enough permissions to write to packages. If you follow the link, it should have everything pre-selected.
+The access token will need to be added as an Action secret. [Create one](https://github.com/settings/tokens/new?description=Azure+Container+Apps+access&scopes=write:packages&?WT.mc_id=academic-77460-alfredodeza) with enough permissions to write to packages. If you follow the link, it should have everything pre-selected.
 
 Capture the output and add it as a [repository secret](/../../settings/secrets/actions/new) with the name `PAT`
 
 ### Update workflow file
 
-Now that you have everything created, you need to update the [.github/workflows/main.yml](/../../edit/main/.github/workflows/main.yml) file and add:
+Now that you have everything created, you need to update the [.github/workflows/web_app.yml](/../../edit/main/.github/workflows/web_app.yml) file and add:
 
 - `AZURE_WEBAPP_NAME`
 
