@@ -145,7 +145,7 @@ Now, we are going to deploy our application using Azure and GitHub actions to do
 First, using free resources with an Azure subscription. Using one of these to deploy it.
 
 - [Sign in to your account](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
-- [Create a (no Credit Card required) Azure For Students account](https://azure.microsoft.com/en-us/free/students/)
+- [Create a (no Credit Card required) Azure For Students account](https://azure.microsoft.com/free/students/?WT.mc_id=academic-77460-alfredodeza)
 - [Create a new Azure account](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
 
 ### Create an Azure App Service
