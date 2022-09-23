@@ -222,7 +222,7 @@ After deploying, make sure you cleanup your resources by destroying the resource
 az group delete --name demo-fastapi
 ```
 
-## Recommendations
+### Deployment Troubleshoot
 
 When deploying, you might encounter errors or problems, either on the autonatiom part of it (GitHub Actions) or on the deployment destination (Azure WebApps). Here are a list of things to check for, and some suggestions on how to ensure that the deployment is correct.
 
