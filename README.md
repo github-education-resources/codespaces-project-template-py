@@ -138,7 +138,7 @@ To find the unique identifier of an extension:
 
 ## How to deploy
 
-Now, we are going to deploy our application, we are going to use Azure and Git Hub actions to do this autmomatically! However, we need to configure our services.
+Now, we are going to deploy our application using Azure and GitHub actions to do this autmomatically! However, we need to configure our services.
 
 ### Azure Account
 
