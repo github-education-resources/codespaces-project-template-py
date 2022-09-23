@@ -138,7 +138,107 @@ To find the unique identifier of an extension:
 
 ## How to deploy
 
-TODO
+Now, we are going to deploy our application, we are going to use Azure and Git Hub actions to do this autmomatically! However, we need to configure our services.
+
+### Azure Account
+
+First, using free resources with an Azure subscription. Using one of these to deploy it.
+
+- [Sign in to your account](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
+- [Create a (no Credit Card required) Azure For Students account](https://azure.microsoft.com/en-us/free/students/)
+- [Create a new Azure account](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
+
+### Create an Azure App Service
+
+Now, let's create our Azure resources.
+
+1. Open an [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-0000-alfredodeza) to use the `az` cli. Use bash for this guide
+1. Create a *Resource Group*:
+```
+az group create --name demo-fastapi --location "East US"
+```
+1. Create the **FREE** App Service Plan:
+```
+az appservice plan create --name "demo-fastapi" --resource-group demo-fastapi --is-linux --sku FREE
+```
+1. Create a random identifier for a unique webapp name:
+```
+let "randomIdentifier=$RANDOM*$RANDOM"
+```
+1. Create the web app with a placeholder container using the `randomIdentifier` from before
+```
+az webapp create --name "demo-fastapi-$randomIdentifier" --resource-group demo-fastapi --plan demo-fastapi --runtime "PYTHON:3.9"
+```
+1. Head to the [App Service](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) and confirm that your service is up and running
+
+### Create an Azure Service Principal
+
+Now, the following steps:
+
+1. The Azure subscription ID [find it here](https://portal.azure.com/#view/Microsoft_Azure_Billing/SubscriptionsBlade) or [follow this guide](https://docs.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id)
+1. A Service Principal with the following details the AppID, password, and tenant information. Set the proper role access using the following command (use a real subscription id and replace it):
+
+```
+az ad sp create-for-rbac --name "CICD" --role contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID --sdk-auth
+``` 
+
+Capture the output and add it as a [repository secret](/../../settings/secrets/actions/new) with the name `AZURE_CREDENTIALS`
+
+### Generate a PAT
+
+The access token will need to be added as an Action secret. [Create one](https://github.com/settings/tokens/new?description=Azure+Container+Apps+access&scopes=write:packages) with enough permissions to write to packages. If you follow the link, it should have everything pre-selected.
+
+Capture the output and add it as a [repository secret](/../../settings/secrets/actions/new) with the name `PAT`
+
+### Update workflow file
+
+Now that you have everything created, you need to update the [.github/workflows/main.yml](/../../edit/main/.github/workflows/main.yml) file and add:
+
+- `AZURE_WEBAPP_NAME`
+
+### Deployment
+
+Before continuing, check the following:
+
+1. You have a PAT (Personal Access Token) saved as a [repository secret](/../../settings/secrets/)
+1. You've created an Azure Service Principal and saved it as a [repository secret](/../../settings/secrets/) as `AZURE_CREDENTIALS`
+1. You've created an [App Service](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) with a valid name and the site is already available with the default static content
+
+To deploy:
+
+1. Go to [repository actions](/../../actions/workflows/web_app.yml) and click on _Run workflow_ and then the green button to run it.
+
+**Deploying can take a couple of minutes**. Make sure you tail the logs in the Azure cloud shell to check the progress:
+
+```
+az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GROUP
+```
+
+### Destroy resources when complete
+
+After deploying, make sure you cleanup your resources by destroying the resource group. You can do it by re-using the group name you created initially (`demo-fastapi` in the examples):
+
+```
+az group delete --name demo-fastapi
+```
+
+## Recommendations
+
+When deploying, you might encounter errors or problems, either on the autonatiom part of it (GitHub Actions) or on the deployment destination (Azure WebApps). Here are a list of things to check for, and some suggestions on how to ensure that the deployment is correct.
+
+* Not having enough RAM per container
+* Not using authentication for accessing the remote registry (ghcr.io in this case). Authentication is always required
+* Not using a PAT (Personal Access Token) or using a PAT that doesn't have write permissions for "packages".
+* Different port than 8000 in the container. By default Azure Container Apps use 80 and the automation updates a config option to map it to 8000.
+
+If running into trouble, check logs in the portal or use the following with the Azure CLI:
+
+```
+az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GROUP
+```
+
+Update both variables to match your environment
+
 
 ## Adding Ci/CD
 
@@ -148,3 +248,5 @@ TODO
 
 - [Fastapi](https://fastapi.tiangolo.com/)
 - [Codespaces](https://github.com/features/codespaces)
+- [Deploying containers to Azure](https://learning.oreilly.com/videos/deploying-containers-to/50135VIDEOPAIML/)
+- [Azure in GitHub Actions](https://learning.oreilly.com/videos/azure-in-github/50140VIDEOPAIML/)
