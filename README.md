@@ -44,7 +44,7 @@ Next, we will run our app.
 
 ### Inspect your codespaces environment
 
-What you have at this point is a pre-configured environment where all the runtimes and libraries you need are already installed - a 0 config experience.
+What you have at this point is a pre-configured environment where all the runtimes and libraries you need are already installed - a zero config experience.
 
 > This environment will run the same regardless of whether your students are on Windows, macOS or Linux.
 
@@ -152,7 +152,8 @@ First, using free resources with an Azure subscription. Using one of these to de
 
 Now, let's create our Azure resources.
 
-- Open an [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-77460-alfredodeza) to use the `az` cli. Use bash for this guide
+- Open an [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-77460-alfredodeza) to use the `az` cli. 
+- Use Bash for this guide to generate your unique identifier quickly.
 - Create a *Resource Group*:
 ```
 az group create --name demo-fastapi --location "East US"
@@ -184,12 +185,6 @@ az ad sp create-for-rbac --name "CICD" --role contributor --scopes /subscription
 
 Capture the output and add it as a [repository secret](/../../settings/secrets/actions/new) with the name `AZURE_CREDENTIALS`
 
-### Generate a PAT
-
-The access token will need to be added as an Action secret. [Create one](https://github.com/settings/tokens/new?description=Azure+Container+Apps+access&scopes=write:packages) with enough permissions to write to packages. If you follow the link, it should have everything pre-selected.
-
-Capture the output and add it as a [repository secret](/../../settings/secrets/actions/new) with the name `PAT`
-
 ### Update workflow file
 
 Now that you have everything created, you need to update the [.github/workflows/web_app.yml](/../../edit/main/.github/workflows/web_app.yml) file and add:
@@ -200,7 +195,6 @@ Now that you have everything created, you need to update the [.github/workflows/
 
 Before continuing, check the following:
 
-1. You have a PAT (Personal Access Token) saved as a [repository secret](/../../settings/secrets/)
 1. You've created an Azure Service Principal and saved it as a [repository secret](/../../settings/secrets/) as `AZURE_CREDENTIALS`
 1. You've created an [App Service](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) with a valid name and the site is already available with the default static content
 
@@ -224,10 +218,7 @@ az group delete --name demo-fastapi
 
 ### Deployment Troubleshooting
 
-When deploying, you might encounter errors or problems, either on the autonatiom part of it (GitHub Actions) or on the deployment destination (Azure WebApps). Here are a list of things to check for, and some suggestions on how to ensure that the deployment is correct.
-
-* Not using authentication for accessing the remote registry (ghcr.io in this case). Authentication is always required
-* Not using a PAT (Personal Access Token) or using a PAT that doesn't have write permissions for "packages".
+When deploying, you might encounter errors or problems, either on the autonatiom part of it (GitHub Actions) or on the deployment destination (Azure WebApps).
 
 If running into trouble, check logs in the portal or use the following with the Azure CLI:
 
@@ -246,5 +237,3 @@ TODO
 
 - [Fastapi](https://fastapi.tiangolo.com/)
 - [Codespaces](https://github.com/features/codespaces)
-- [Deploying containers to Azure](https://learning.oreilly.com/videos/deploying-containers-to/50135VIDEOPAIML/)
-- [Azure in GitHub Actions](https://learning.oreilly.com/videos/azure-in-github/50140VIDEOPAIML/)
