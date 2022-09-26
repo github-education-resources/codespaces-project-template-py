@@ -186,7 +186,7 @@ Capture the output and add it as a [repository secret](/../../settings/secrets/a
 
 ### Generate a PAT
 
-The access token will need to be added as an Action secret. [Create one](https://github.com/settings/tokens/new?description=Azure+Container+Apps+access&scopes=write:packages&?WT.mc_id=academic-77460-alfredodeza) with enough permissions to write to packages. If you follow the link, it should have everything pre-selected.
+The access token will need to be added as an Action secret. [Create one](https://github.com/settings/tokens/new?description=Azure+Container+Apps+access&scopes=write:packages) with enough permissions to write to packages. If you follow the link, it should have everything pre-selected.
 
 Capture the output and add it as a [repository secret](/../../settings/secrets/actions/new) with the name `PAT`
 
