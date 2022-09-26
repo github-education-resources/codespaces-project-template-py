@@ -187,9 +187,11 @@ Capture the output and add it as a [repository secret](/../../settings/secrets/a
 
 ### Update workflow file
 
-Now that you have everything created, you need to update the [.github/workflows/web_app.yml](/../../edit/main/.github/workflows/web_app.yml) file and add:
+Now that you have everything created, we need to check the name for our webapp.
 
-- `AZURE_WEBAPP_NAME`
+- Check the result of `randomIdentifier` in your bash shell in az, use that to change in our webapp
+- Update the [.github/workflows/web_app.yml](/../../edit/main/.github/workflows/web_app.yml) file
+- Update this: `AZURE_WEBAPP_NAME`: demo-fastapi-(randomIdentifier-result-here)
 
 ### Deployment
 
