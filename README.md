@@ -28,6 +28,9 @@ You can also configure your developer container to run a specific runtime and ha
 - [.devcontainer/Dockerfile](./.devcontainer/Dockerfile), So that you can configure what operating system the Codespace will use and how should the container be built.
 - [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json), A configuration file used by Codespaces to configure [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza), for example to add and enable an extension.
 
+### 🔎 Found an issue or have an idea for improvement? 
+Help us make this template repository better by [letting us know and opening an issue!](/../../issues/new). 
+
 ## 🧐 Try it out
 
 Try out this template repository using Codespaces following these steps:
