@@ -44,7 +44,7 @@ Next, we will run our app.
 
 ### Inspect your codespaces environment
 
-What you have at this point is a pre-configured environment where all the runtimes and libraries you need are already installed - a 0 config experience.
+What you have at this point is a pre-configured environment where all the runtimes and libraries you need are already installed - a zero config experience.
 
 > This environment will run the same regardless of whether your students are on Windows, macOS or Linux.
 
@@ -138,7 +138,98 @@ To find the unique identifier of an extension:
 
 ## How to deploy
 
-TODO
+Now, we are going to deploy our application using Azure and GitHub actions to do this autmomatically! However, we need to configure our services.
+
+### Azure Account
+
+First, using free resources with an Azure subscription. Using one of these to deploy it.
+
+- [Sign in to your account](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
+- [Create a (no Credit Card required) Azure For Students account](https://azure.microsoft.com/free/students/?WT.mc_id=academic-77460-alfredodeza)
+- [Create a new Azure account](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
+
+### Create an Azure App Service
+
+Now, let's create our Azure resources.
+
+- Open an [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-77460-alfredodeza) to use the `az` cli. 
+- Use Bash for this guide to generate your unique identifier quickly.
+- Create a *Resource Group*:
+```
+az group create --name demo-fastapi --location "East US"
+```
+- Create the **FREE** App Service Plan:
+```
+az appservice plan create --name "demo-fastapi" --resource-group demo-fastapi --is-linux --sku FREE
+```
+- Create a random identifier for a unique webapp name:
+```
+let "randomIdentifier=$RANDOM*$RANDOM"
+```
+- Create the web app with a placeholder container using the `randomIdentifier` from before
+```
+az webapp create --name "demo-fastapi-$randomIdentifier" --resource-group demo-fastapi --plan demo-fastapi --runtime "PYTHON:3.9"
+```
+- Head to the [App Service](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) and confirm that your service is up and running
+
+### Create an Azure Service Principal
+
+Now, the following steps:
+
+1. The Azure subscription ID [find it here](https://portal.azure.com/#view/Microsoft_Azure_Billing/SubscriptionsBlade?WT.mc_id=academic-77460-alfredodeza) or [follow this guide](https://learn.microsoft.com/azure/azure-portal/get-subscription-tenant-id?WT.mc_id=academic-77460-alfredodeza)
+1. A Service Principal with the following details the AppID, password, and tenant information. Set the proper role access using the following command (use a real subscription id and replace it):
+
+```
+az ad sp create-for-rbac --name "CICD" --role contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID --sdk-auth
+``` 
+
+Capture the output and add it as a [repository secret](/../../settings/secrets/actions/new) with the name `AZURE_CREDENTIALS`
+
+### Update workflow file
+
+Now that you have everything created, we need to check the name for our webapp.
+
+- Check the result of `randomIdentifier` in your bash shell in az, use that to change in our webapp
+- Update the [.github/workflows/web_app.yml](/../../edit/main/.github/workflows/web_app.yml) file
+- Update this: `AZURE_WEBAPP_NAME`: demo-fastapi-(randomIdentifier-result-here)
+
+### Deployment
+
+Before continuing, check the following:
+
+1. You've created an Azure Service Principal and saved it as a [repository secret](/../../settings/secrets/) as `AZURE_CREDENTIALS`
+1. You've created an [App Service](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) with a valid name and the site is already available with the default static content
+
+To deploy:
+
+1. Go to [repository actions](/../../actions/workflows/web_app.yml) and click on _Run workflow_ and then the green button to run it.
+
+**Deploying can take a couple of minutes**. Make sure you tail the logs in the Azure cloud shell to check the progress:
+
+```
+az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GROUP
+```
+
+### Destroy resources when complete
+
+After deploying, make sure you cleanup your resources by destroying the resource group. You can do it by re-using the group name you created initially (`demo-fastapi` in the examples):
+
+```
+az group delete --name demo-fastapi
+```
+
+### Deployment Troubleshooting
+
+When deploying, you might encounter errors or problems, either on the autonatiom part of it (GitHub Actions) or on the deployment destination (Azure WebApps).
+
+If running into trouble, check logs in the portal or use the following with the Azure CLI:
+
+```
+az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GROUP
+```
+
+Update both variables to match your environment
+
 
 ## Adding Ci/CD
 
