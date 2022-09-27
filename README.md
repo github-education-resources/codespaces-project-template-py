@@ -257,10 +257,6 @@ Update both variables to match your environment
 </details>
 
 
-## Adding Ci/CD
-
-TODO
-
 ## Resources
 
 - [Fastapi](https://fastapi.tiangolo.com/)
