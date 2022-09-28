@@ -1,10 +1,10 @@
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=526682400)
 
-# Python RESTful API for use with GitHub Codespaces
+# Python HTTP API for use with GitHub Codespaces
 
 _Run a Python API in this ready-to-use-repository in minutes_
 
-With this template respository, you can quickly start up a Python web app that serves an HTTP API using the [FastAPI](https://fastapi.tiangolo.com/) framework. 
+By opening this template respository in Codespaces, you can quickly get hands-on with a Python web app that serves an HTTP API using the [FastAPI](https://fastapi.tiangolo.com/) framework. You'll get to focus on working with the project instead of setup and configuration.
 
 <details>
    <summary><strong>Learn more about APIs</strong></summary>
@@ -12,18 +12,15 @@ With this template respository, you can quickly start up a Python web app that s
    An API (Application Programming Interface) describes a way for two computers to interact.
    An HTTP API allows an Internet-connected computer to send an HTTP request to another Internet-connected computer
     and receive a response. For example, my computer could send a request to
-   `http://fakeweatherwebsite.com/api/city=Los+Angeles` and receive back data like `{"high": 72, "low": 66}`.
+   `http://a-weather-website-api.com/api/city=Los+Angeles` and receive back data like `{"high": 72, "low": 66}`.
    
-   HTTP APIs often provide either data or functionality that's unique to a service, like the example API for the weather website. User-facing websites like Twitter and Instagram also provide APIs to retrieve back user data (provided
-   proper authentication).
-
-   Any website can decide to offer an API if it thinks it has helpful functionality to share
-   with other computers. 
+   HTTP APIs often provide either data or functionality that's unique to a service, like the example API for the weather website. A weather website could provide additional API endpoints for other weather-related functionality, like upcoming forecasts or historical data. Any website can decide to offer an API if it thinks it has helpful functionality to share
+   with other computers. In this project, you'll run an HTTP API that generates a random token.
 </details>
 
 ![Running FastAPI](./images/api-running.png)
 
-This template is also ready to be used with [Codespaces](https://github.com/features/codespaces), a developer environment running in the cloud with [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza). That means you'll get to focus on working with the code instead of worrying about setup and configuration.
+This template is also ready to be used with [Codespaces](https://github.com/features/codespaces), a developer environment running in the cloud with [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza).
 
 <details>
    <summary><b>🎥 Watch the video tutorial to learn more about Codespaces</b></summary>
@@ -93,11 +90,9 @@ The API included in this template repository has a single endpoint that generate
 
    ![Try a POST request](./images/try-it-out.png)
 
-<<<<<<< HEAD
-</details>
-=======
 🔒 Do you see the lock next to the URL of the website in the browser? That indicates the website is being served over a secure HTTPS connection which encrypts the HTTP responses. That's very important whenever an API can receive sensitive data or respond with sensitive data (like a password).
->>>>>>> 70d9a7d (Note about HTTPs)
+
+</details>
 
 ## Customize the Codespace
 
@@ -210,6 +205,9 @@ az webapp create --name "demo-fastapi-$randomIdentifier" --resource-group demo-f
 ```
 1. Head to the Azure portal [App Services list](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) and confirm that your newly created service is listed.
 
+</details>
+
+
 <details>
 <summary><b>Create an Azure Service Principal</b></summary>
 
@@ -276,6 +274,7 @@ az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GR
 
 Update both variables to match your environment.
 
+</details>
 
 ## Other Resources
 
