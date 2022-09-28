@@ -45,13 +45,20 @@ Try out this template repository using Codespaces following these steps:
 
 Next, we will run our app.
 
+
+
 ### Inspect your codespaces environment
 
 What you have at this point is a pre-configured environment where all the runtimes and libraries you need are already installed - a zero config experience.
 
 > This environment will run the same regardless of whether your students are on Windows, macOS or Linux.
 
-## Run API
+
+## Running our app!
+
+<details> 
+
+<summary><b>Run API</b></summary>
 
 The API included in this template repository has a single endpoint that generates a strong password. Get it up and running using the following steps:
 
@@ -80,7 +87,12 @@ The API included in this template repository has a single endpoint that generate
 
    ![Try a POST request](./images/try-it-out.png)
 
-## Customize the Codespace
+</details>
+
+<details> 
+
+<summary><b>Customize the Codespace</b></summary>
+
 
 You can change your environment. Let us take you through two different challenges that you are likely to want to do.
 
@@ -139,7 +151,11 @@ To find the unique identifier of an extension:
 - Navigate to the extension's web page, for example [https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter&WT.mc_id=academic-77460-alfredodeza)
 - Locate the *Unique Identifier* field under **More info** section on your right side.
 
-## How to deploy
+</details>
+
+<details> 
+
+<summary><b>How to deploy</b></summary>
 
 Now, we are going to deploy our application using Azure and GitHub actions to do this autmomatically! However, we need to configure our services.
 
@@ -233,10 +249,8 @@ az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GR
 
 Update both variables to match your environment
 
+</details>
 
-## Adding Ci/CD
-
-TODO
 
 ## Resources
 
