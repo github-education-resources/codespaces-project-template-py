@@ -28,8 +28,8 @@ You can also configure your developer container to run a specific runtime and ha
 - [.devcontainer/Dockerfile](./.devcontainer/Dockerfile), So that you can configure what operating system the Codespace will use and how should the container be built.
 - [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json), A configuration file used by Codespaces to configure [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza), for example to add and enable an extension.
 
-### 🔎 Found an issue or have an idea for improvement? 
-Help us make this template repository better by [letting us know and opening an issue!](/../../issues/new). 
+### 🔎 Found an issue or have an idea for improvement?
+Help us make this template repository better by [letting us know and opening an issue!](/../../issues/new).
 
 ## 🧐 Try it out
 
@@ -37,17 +37,13 @@ Try out this template repository using Codespaces following these steps:
 
 1. Create a repo from this template. Use this [create repo link](https://github.com/microsoft/codespaces-project-template-py/generate)
 1. Navigate to the main page of the newly created repository.
-1. Under the repository name, use the Code drop-down menu, and in the Codespaces tab, select "Create codespace on main".
-   ![Create codespace](https://docs.github.com/assets/cb-138303/images/help/codespaces/new-codespace-button.png)
-1. Creating codespace
+1. Under the repository name, use the Code drop-down menu, and in the Codespaces tab, select "Create Codespace on main".
+   ![Create Codespace](https://docs.github.com/assets/cb-138303/images/help/codespaces/new-codespace-button.png)
+1. Creating Codespace
 
-   ![Creating codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_build.png)
+   ![Creating Codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_build.png)
 
-Next, we will run our app.
-
-
-
-### Inspect your codespaces environment
+### Inspect your Codespaces environment
 
 What you have at this point is a pre-configured environment where all the runtimes and libraries you need are already installed - a zero config experience.
 
@@ -56,11 +52,13 @@ What you have at this point is a pre-configured environment where all the runtim
 
 ## Running our app!
 
-<details> 
+This Python application is using FastAPI, a powerful web framework that self-documents its API endpoints. The API has only one endpoint that generates a unique pseudo-random string that can be used as a token.
 
-<summary><b>Run API</b></summary>
+<details>
 
-The API included in this template repository has a single endpoint that generates a strong password. Get it up and running using the following steps:
+<summary><b>Run FastAPI inside the Codespace</b></summary>
+
+The API included in this template repository has a single endpoint that generates a token. Get it up and running using the following steps:
 
 1. Open up a terminal window by opening up the command palette (Ctrl-Shift-P or Cmd-Shift-P) and then select "Open new Terminal" command.
 1. Run `uvicorn` in the console, it will start up your API:
@@ -89,12 +87,17 @@ The API included in this template repository has a single endpoint that generate
 
 </details>
 
-<details> 
-
-<summary><b>Customize the Codespace</b></summary>
 
 
-You can change your environment. Let us take you through two different challenges that you are likely to want to do.
+## Customize the Codespace
+
+You can change your environment and the text editor so that the next time you create (or rebuild) the environment, everything will be set automatically. Let's go through two different challenges that you are likely to want to do:
+
+1. Changing the Python version
+1. Adding or modifying a pre-installed editor extension
+
+
+<details>
 
 ### Step 1: Change the Python environment
 
@@ -116,7 +119,7 @@ this change will use Python 3.9 instead of 3.8.
 
 ### Step 2: Add an extension
 
-Your environment comes with preinstalled extensions. You can change which extensions your codespaces environment starts with, here's how:
+Your environment comes with preinstalled extensions. You can change which extensions your Codespaces environment starts with, here's how:
 
 1. Open file [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) and locate the following JSON element **extensions**:
 
@@ -141,10 +144,10 @@ Your environment comes with preinstalled extensions. You can change which extens
 
    Remainder: When you change any configuration on the json, a box will appear after saving.
 
-   ![Recreating codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
+   ![Recreating Codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
 
 
-   Click on rebuild. Wait for your codespace to rebuild the VS Code environment.
+   Click on rebuild. Wait for your Codespace to rebuild the VS Code environment.
 
 To find the unique identifier of an extension:
 
@@ -153,66 +156,76 @@ To find the unique identifier of an extension:
 
 </details>
 
-<details> 
 
-<summary><b>How to deploy</b></summary>
+## 🚀 Next steps
 
-Now, we are going to deploy our application using Azure and GitHub actions to do this autmomatically! However, we need to configure our services.
+Take this API application to the next level and deploy it to the cloud! For this learning challenge you'll use a FREE deployment option for Azure and GitHub Actions for the automation.
 
-### Azure Account
-
-First, using free resources with an Azure subscription. Using one of these to deploy it.
+Before continuing, make sure you have an Azure account ready. Select any of the following:
 
 - [Sign in to your account](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
 - [Create a (no Credit Card required) Azure For Students account](https://azure.microsoft.com/free/students/?WT.mc_id=academic-77460-alfredodeza)
 - [Create a new Azure account](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
 
-### Create an Azure App Service
+There are a few steps involved, so make sure you get everything right!
 
-Now, let's create our Azure resources.
+<details>
+<summary><b>Create an Azure App Service</b></summary>
 
-- Open an [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-77460-alfredodeza) to use the `az` cli. 
-- Use Bash for this guide to generate your unique identifier quickly.
-- Create a *Resource Group*:
+Now, we are going to deploy our application using Azure and GitHub actions to do this autmomatically! However, we need to configure our services.
+
+Start by creating the Azure resources.
+
+1. Open an [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-77460-alfredodeza) to use the `az` cli.
+1. Use the Bash shell (not PowerShell!) for this guide to generate your unique identifier quickly.
+1. Create a *Resource Group*:
 ```
 az group create --name demo-fastapi --location "East US"
 ```
-- Create the **FREE** App Service Plan:
+1. Create the **FREE** App Service Plan:
 ```
 az appservice plan create --name "demo-fastapi" --resource-group demo-fastapi --is-linux --sku FREE
 ```
-- Create a random identifier for a unique webapp name:
+1. Create a random identifier for a unique webapp name:
 ```
 let "randomIdentifier=$RANDOM*$RANDOM"
 ```
-- Create the web app with a placeholder container using the `randomIdentifier` from before
+1. Create the web app with a placeholder container using the `randomIdentifier` from before
 ```
 az webapp create --name "demo-fastapi-$randomIdentifier" --resource-group demo-fastapi --plan demo-fastapi --runtime "PYTHON:3.9"
 ```
-- Head to the [App Service](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) and confirm that your service is up and running
+1. Head to the [App Service](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) and confirm that your service is up and running
+</details>
 
-### Create an Azure Service Principal
+<details>
+<summary><b>Create an Azure Service Principal</b></summary>
 
-Now, the following steps:
+Next, create an Azure Service Principal, which is a special type of account that has permissions necessary to authenticate from GitHub to Azure:
 
 1. The Azure subscription ID [find it here](https://portal.azure.com/#view/Microsoft_Azure_Billing/SubscriptionsBlade?WT.mc_id=academic-77460-alfredodeza) or [follow this guide](https://learn.microsoft.com/azure/azure-portal/get-subscription-tenant-id?WT.mc_id=academic-77460-alfredodeza)
 1. A Service Principal with the following details the AppID, password, and tenant information. Set the proper role access using the following command (use a real subscription id and replace it):
 
 ```
 az ad sp create-for-rbac --name "CICD" --role contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID --sdk-auth
-``` 
+```
 
 Capture the output and add it as a [repository secret](/../../settings/secrets/actions/new) with the name `AZURE_CREDENTIALS`
+</details>
 
-### Update workflow file
+<details>
 
-Now that you have everything created, we need to check the name for our webapp.
+<summary><b>Setup GitHub Actions</b></summary>
+
+Now that you have everything created, we need to update the GitHub Action workflow file with the name for our webapp.
 
 - Check the result of `randomIdentifier` in your bash shell in az, use that to change in our webapp
 - Update the [.github/workflows/web_app.yml](/../../edit/main/.github/workflows/web_app.yml) file
 - Update this: `AZURE_WEBAPP_NAME`: demo-fastapi-(randomIdentifier-result-here)
 
-### Deployment
+</details>
+
+<details>
+<summary><b>🏃 Deploy your app!</b></summary>
 
 Before continuing, check the following:
 
@@ -252,7 +265,8 @@ Update both variables to match your environment
 </details>
 
 
-## Resources
+## Other Resources
 
 - [Fastapi](https://fastapi.tiangolo.com/)
 - [Codespaces](https://github.com/features/codespaces)
+- [Use Dev containers locally](https://github.com/Microsoft/vscode-remote-try-python)
