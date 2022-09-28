@@ -54,13 +54,11 @@ What you have at this point is a pre-configured environment where all the runtim
 > This environment will run the same regardless of whether your students are on Windows, macOS or Linux.
 
 
-
+## Running our app!
 
 <details> 
 
 <summary><b>Run API</b></summary>
-
-## Run API
 
 The API included in this template repository has a single endpoint that generates a strong password. Get it up and running using the following steps:
 
@@ -95,7 +93,6 @@ The API included in this template repository has a single endpoint that generate
 
 <summary><b>Customize the Codespace</b></summary>
 
-## Customize the Codespace
 
 You can change your environment. Let us take you through two different challenges that you are likely to want to do.
 
@@ -159,8 +156,6 @@ To find the unique identifier of an extension:
 <details> 
 
 <summary><b>How to deploy</b></summary>
-
-## How to deploy
 
 Now, we are going to deploy our application using Azure and GitHub actions to do this autmomatically! However, we need to configure our services.
 
