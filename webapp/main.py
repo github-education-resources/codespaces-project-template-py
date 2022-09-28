@@ -27,11 +27,11 @@ def root():
 @app.post('/generate')
 def generate(body: Body):
     """
-    Generate a strong password of twenty characters by default. Example POST request body:
+    Generate a pseudo-random token ID of twenty characters by default. Example POST request body:
 
     {
         "length": 20
     }
     """
     string = base64.b64encode(os.urandom(64))[:body.length].decode('utf-8')
-    return {'password': string}
+    return {'token': string}
