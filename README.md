@@ -49,19 +49,23 @@ Try out this template repository using Codespaces following these steps:
 
 1. Create a repository from this template. Use this [create repo link](https://github.com/microsoft/codespaces-project-template-py/generate). You can make the repository private or public, up to you.
 1. Navigate to the main page of the newly created repository.
-1. Under the repository name, use the Code drop-down menu, and in the Codespaces tab, select "Create codespace on main".
-   ![Create codespace](https://docs.github.com/assets/cb-138303/images/help/codespaces/new-codespace-button.png)
+1. Under the repository name, use the Code drop-down menu, and in the Codespaces tab, select "Create Codespace on main".
+   ![Create Codespace](https://docs.github.com/assets/cb-138303/images/help/codespaces/new-codespace-button.png)
 1. Wait as Github initializes the codespace:
+   ![Creating Codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_build.png)
 
-   ![Creating codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_build.png)
-
-### Inspect your codespaces environment
+### Inspect your Codespaces environment
 
 What you have at this point is a pre-configured environment where all the runtimes and libraries you need are already installed - a zero config experience.
 
-## Run the API app
+## Running the App
 
-The API included in this template repository has a single endpoint that generates a strong password. Get it up and running using the following steps:
+This Python application is using FastAPI, a powerful web framework that self-documents its API endpoints. The API has only one endpoint that generates a unique pseudo-random string that can be used as a token.
+
+<details>
+<summary><b>Run FastAPI inside the Codespace</b></summary>
+
+The API included in this template repository has a single endpoint that generates a token. Get it up and running using the following steps:
 
 1. Open up a terminal window by opening up the command palette (Ctrl-Shift-P or Cmd-Shift-P) and then select "Open new Terminal" command.
 1. Run `uvicorn` in the console to start up your API application:
@@ -89,11 +93,21 @@ The API included in this template repository has a single endpoint that generate
 
    ![Try a POST request](./images/try-it-out.png)
 
+<<<<<<< HEAD
+</details>
+=======
 🔒 Do you see the lock next to the URL of the website in the browser? That indicates the website is being served over a secure HTTPS connection which encrypts the HTTP responses. That's very important whenever an API can receive sensitive data or respond with sensitive data (like a password).
+>>>>>>> 70d9a7d (Note about HTTPs)
 
 ## Customize the Codespace
 
-You can change your environment. Let us take you through two different challenges that you are likely to want to do.
+You can change your environment and the text editor so that the next time you create (or rebuild) the environment, everything will be set automatically. Let's go through two different challenges that you are likely to want to do:
+
+1. Changing the Python version
+1. Adding or modifying a pre-installed editor extension
+
+
+<details>
 
 ### Step 1: Change the Python environment
 
@@ -148,73 +162,84 @@ Your environment comes with pre-installed extensions. You can change which exten
 
    ![Recreating Codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
 
-   Click on rebuild. Wait for your codespace to rebuild the VS Code environment.
+   Click on rebuild. Wait for your Codespace to rebuild the VS Code environment.
 
 To find the unique identifier of an extension:
 
 - Navigate to the extension's web page, for example [https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter&WT.mc_id=academic-77460-alfredodeza)
 - Locate the *Unique Identifier* field under **More info** section on your right side.
 
-## Deploy the API app
+</details>
 
-Now, you are going to deploy the application using Azure and GitHub actions to do this autmomatically! However, you need to configure some services first.
+## 🚀 Next steps
 
-### Azure Account
+Take this API application to the next level and deploy it to the cloud! For this learning challenge you'll use a FREE deployment option for Azure and GitHub Actions for the automation.
 
-This app can be deployed entirely using free resources on a free Azure account. Sign in or sign up with one of these links:
+Before continuing, make sure you have an Azure account ready. Select any of the following:
 
 - [Sign in to your Azure account](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
 - [Create a (no Credit Card required) Azure For Students account](https://azure.microsoft.com/free/students/?WT.mc_id=academic-77460-alfredodeza)
 - [Create a new Azure account](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
 
-### Create an Azure App Service
+There are a few steps involved, so make sure you get everything right!
 
-Now, you need to create Azure "resources" using the `az` command-line tool, which you can do entirely in the browser.
+<details>
+<summary><b>Create an Azure App Service</b></summary>
 
-- Open the [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-77460-alfredodeza).
-- If it asks to choose between _Bash_ and _Powershell_ environments, select _Bash_.
-- If it says "You have no storage mounted", select a subscription in your account and click "Create storage". The Cloud Shell uses that storage resource to store data generated during your shell sessions.
-- Create a *Resource Group* which will group together the different Azure resources used for the app:
+Now, you are going to set up automatic deployment of the application using Azure plus GitHub actions! However, you first need to configure some Azure services.
+
+1. Open the [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-77460-alfredodeza).
+1. Use the Bash shell (not PowerShell!) for these steps.
+1. If it says "You have no storage mounted", select a subscription in your account and click "Create storage". The Cloud Shell uses that storage resource to store data generated during your shell sessions.
+1. Create a *Resource Group* which will group together the different Azure resources used for the app:
 ```
 az group create --name demo-fastapi --location "East US"
 ```
-- You'll see a JSON response with details about the newly created resource, for this command and all the commands that follow.
-- Create the **FREE** *App Service Plan*:
+1. You'll see a JSON response with details about the newly created resource, for this command and all the commands that follow.
+1. Create the **FREE** *App Service Plan*:
 ```
 az appservice plan create --name "demo-fastapi" --resource-group demo-fastapi --is-linux --sku FREE
 ```
-- Create a random identifier for a unique webapp name:
+1. Create a random identifier for a unique webapp name:
 ```
 let "randomIdentifier=$RANDOM*$RANDOM"
 ```
-- Create the *Web App Service* with a placeholder container using the `randomIdentifier` variable from before:
+1. Create the *Web App Service* with a placeholder container using the `randomIdentifier` variable from before:
 ```
 az webapp create --name "demo-fastapi-$randomIdentifier" --resource-group demo-fastapi --plan demo-fastapi --runtime "PYTHON:3.9"
 ```
-- Head to the Azure portal [App Services list](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) and confirm that your newly created service is listed.
+1. Head to the Azure portal [App Services list](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) and confirm that your newly created service is listed.
 
-### Create an Azure Service Principal
+<details>
+<summary><b>Create an Azure Service Principal</b></summary>
 
-Next you'll need to create an *Azure Service Principle*, a special kind of account that has permissions to deploy apps.
+Next, create an Azure Service Principal, which is a special type of account that has permissions necessary to authenticate from GitHub to Azure:
 
 1. Find the ID of your Azure Subscription [in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Billing/SubscriptionsBlade?WT.mc_id=academic-77460-alfredodeza) or [by following this guide](https://learn.microsoft.com/azure/azure-portal/get-subscription-tenant-id?WT.mc_id=academic-77460-alfredodeza).
-2. Create a Service Principal with a "contributor" role that is allowed to make changes to any resources in that subscription. Replace $AZURE_SUBSCRIPTION_ID with the ID you found in step 1 and run this command:
+1. Create a Service Principal with a "contributor" role that is allowed to make changes to any resources in that subscription. Replace $AZURE_SUBSCRIPTION_ID with the ID you found in step 1 and run this command:
 
 ```
 az ad sp create-for-rbac --name "CICD" --role contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID --sdk-auth
-``` 
+```
 
-3. Capture the output and add it as a [Github repository secret](/../../settings/secrets/actions/new) with the name `AZURE_CREDENTIALS`.
+1. Capture the output and add it as a [Github repository secret](/../../settings/secrets/actions/new) with the name `AZURE_CREDENTIALS`.
 
-### Update workflow file
+</details>
 
-Now that you have all the Azure resources created, you need to let your code repository know your Azure app name.
+<details>
+
+<summary><b>Setup GitHub Actions</b></summary>
+
+Now that you have all the Azure resources created, you need to update the GitHub Action workflow file with the name of your webapp.
 
 1. Find your app name. It should look something like `demo-fastapi-97709018` but with a different random number at the end,
 and you can find it in the Azure portal or the Cloud Shell commands.
 2. Open the [.github/workflows/web_app.yml](/../../edit/main/.github/workflows/web_app.yml) file and update the value of `AZURE_WEBAPP_NAME` to your app name.
 
-### Deployment
+</details>
+
+<details>
+<summary><b>🏃 Deploy your app!</b></summary>
 
 Before continuing, check the following:
 
@@ -252,10 +277,11 @@ az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GR
 Update both variables to match your environment.
 
 
-## Resources
+## Other Resources
 
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Codespaces](https://github.com/features/codespaces)
+- [Use Dev containers locally](https://github.com/Microsoft/vscode-remote-try-python)
 
 ### 🔎 Found an issue or have an idea for improvement? 
-Help us make this template repository better by [letting us know and opening an issue!](/../../issues/new). 
+Help us make this template repository better by [letting us know and opening an issue!](/../../issues/new).
