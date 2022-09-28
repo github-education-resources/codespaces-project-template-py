@@ -89,6 +89,8 @@ The API included in this template repository has a single endpoint that generate
 
    ![Try a POST request](./images/try-it-out.png)
 
+🔒 Do you see the lock next to the URL of the website in the browser? That indicates the website is being served over a secure HTTPS connection which encrypts the HTTP responses. That's very important whenever an API can receive sensitive data or respond with sensitive data (like a password).
+
 ## Customize the Codespace
 
 You can change your environment. Let us take you through two different challenges that you are likely to want to do.
