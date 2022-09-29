@@ -30,9 +30,9 @@ This template is also ready to be used with [Codespaces](https://github.com/feat
 
 ## For students and developers
 
-Using Codespaces, you get [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza) in the cloud, using a ["developer container"](https://containers.dev/). Like a locally running version of [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza), the cloud version also allows you to install extensions and use a terminal.
+Using Codespaces, you get [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza) in the cloud, using a ["development container"](https://containers.dev/). Like a locally running version of [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza), the cloud version also allows you to install extensions and use a terminal.
 
-You can also configure your developer container to run a specific runtime and have it boot up with your favorite extensions.
+You can also configure your development container to run a specific runtime and have it boot up with your favorite extensions.
 
 Here are the key files and folders that make it happen:
 
@@ -217,10 +217,14 @@ Next, create an Azure Service Principal, which is a special type of account that
 1. Create a Service Principal with a "contributor" role that is allowed to make changes to any resources in that subscription. Replace $AZURE_SUBSCRIPTION_ID with the ID you found in step 1 and run this command:
 
 ```
-az ad sp create-for-rbac --name "CICD" --role contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID --sdk-auth
+az ad sp create-for-rbac  --sdk-auth --name "github-deployer" --role contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID
 ```
 
-1. Capture the output and add it as a [Github repository secret](/../../settings/secrets/actions/new) with the name `AZURE_CREDENTIALS`.
+1. Copy that output into your clipboard.
+1. Navigate to your repository on Github and select the _Settings_ tab.
+1. Select _Secrets > Actions_ from the sidebar. 
+1. On the _Actions secrets_ page, select _New repository secret_ at the top right of the _Actions_ page.
+1. Add the output from above as a secret with the name `AZURE_CREDENTIALS`.
 
 </details>
 
@@ -233,6 +237,13 @@ Now that you have all the Azure resources created, you need to update the GitHub
 1. Find your app name. It should look something like `demo-fastapi-97709018` but with a different random number at the end,
 and you can find it in the Azure portal or the Cloud Shell commands.
 2. Open the [.github/workflows/web_app.yml](/../../edit/main/.github/workflows/web_app.yml) file and update the value of `AZURE_WEBAPP_NAME` to your app name.
+3. Commit and push the changes to the Github repository:
+
+```
+git add .github/workflows/web_app.yml
+git commit -m "Updating workflow file"
+git push
+```
 
 </details>
 
@@ -246,7 +257,9 @@ Before continuing, check the following:
 
 To deploy:
 
-1. Go to [repository actions](/../../actions/workflows/web_app.yml) and click on _Run workflow_ and then the green button to run it.
+1. Navigate to your repository on Github and select the _Actions_ tab.
+2. Select _Build and deploy Python app to Azure Web App_ from the _Workflows_ sidebar.
+3. Select _Run workflow_ and select the green button inside the pop-up to run the workflow.
 
 **Deploying can take a couple of minutes**. Make sure you stream the logs in the Azure Cloud Shell to check the progress:
 
@@ -254,9 +267,13 @@ To deploy:
 az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GROUP
 ```
 
+4. Once deployment is complete, visit your website at a URL like `http://demo-fastapi-97709018.azurewebsites.net/`,
+where the random number is your unique random number. You can find the website URL in the Azure portal or in the deployment logs if you forgot the number.
+5. 🎉 Celebrate a successful deployment! You now have a URL that you can share with classmates, friends, and family.
+
 ### Destroy resources when complete
 
-After deploying, make sure you cleanup your resources by destroying the resource group. You can do it in the Azure Cloud Shell by referencing the group name you created initially (`demo-fastapi` in the examples):
+You likely don't want to keep this particular website running forever in the cloud, so you should cleanup your Azure resources by destroying the resource group. You can do it in the Azure Cloud Shell by referencing the group name you created initially (`demo-fastapi` in the examples):
 
 ```
 az group delete --name demo-fastapi
@@ -266,13 +283,16 @@ az group delete --name demo-fastapi
 
 When deploying, you might encounter errors or problems, either on the automation part of it (GitHub Actions) or on the deployment destination (Azure Web Apps).
 
-If running into trouble, check logs in the portal or use the following with the Azure CLI:
+You can check the logs of the Github Actions workflow by selecting the latest workflow from the _Actions_ tab. Find the first step that has a broken icon next to it, and expand that step to see what went wrong in it.
+
+If running into trouble with the Azure deployment, check logs in the portal or use the following with the Azure CLI:
 
 ```
 az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GROUP
 ```
 
 Update both variables to match your environment.
+
 
 </details>
 
