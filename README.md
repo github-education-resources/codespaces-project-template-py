@@ -6,6 +6,11 @@ _Run a Python API in this ready-to-use-repository in minutes_
 
 By opening this template respository in Codespaces, you can quickly get hands-on with a Python web app that serves an HTTP API using the [FastAPI](https://fastapi.tiangolo.com/) framework. You'll get to focus on working with the project instead of setup and configuration.
 
+🤔 Curious? Watch the following video where we explain all the details:
+
+[![Python development environment with Codespaces](https://img.youtube.com/vi/_i9Pywj3rSg/0.jpg)](https://youtu.be/_i9Pywj3rSg "Python Development environment with Codespaces")
+
+
 <details>
    <summary><strong>Learn more about APIs</strong></summary>
 
