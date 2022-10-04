@@ -23,8 +23,6 @@ By opening this template respository in Codespaces, you can quickly get hands-on
    with other computers. In this project, you'll run an HTTP API that generates a random token.
 </details>
 
-![Running FastAPI](./images/api-running.png)
-
 This template is also ready to be used with [Codespaces](https://github.com/features/codespaces), a developer environment running in the cloud with [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza).
 
 <details>
@@ -63,6 +61,10 @@ What you have at this point is a pre-configured environment where all the runtim
 ## Running the App
 
 This Python application is using FastAPI, a powerful web framework that self-documents its API endpoints. The API has only one endpoint that generates a unique pseudo-random string that can be used as a token.
+
+
+![Running FastAPI](./images/api-running.png)
+
 
 <details>
 <summary><b>Run FastAPI inside the Codespace</b></summary>
