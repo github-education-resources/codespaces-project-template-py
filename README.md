@@ -220,11 +220,7 @@ Next, create an Azure Service Principal, which is a special type of account that
 az ad sp create-for-rbac  --sdk-auth --name "github-deployer" --role contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID
 ```
 
-1. Copy that output into your clipboard.
-1. Navigate to your repository on Github and select the _Settings_ tab.
-1. Select _Secrets > Actions_ from the sidebar. 
-1. On the _Actions secrets_ page, select _New repository secret_ at the top right of the _Actions_ page.
-1. Add the output from above as a secret with the name `AZURE_CREDENTIALS`.
+1. Capture the output and add it as a [Github repository secret](/../../settings/secrets/actions/new) with the name `AZURE_CREDENTIALS`. (_If that link doesn't work, make sure you're reading this on your own copy of the repo, not the original template._)
 
 </details>
 
@@ -257,8 +253,7 @@ Before continuing, check the following:
 
 To deploy:
 
-1. Navigate to your repository on Github and select the _Actions_ tab.
-2. Select _Build and deploy Python app to Azure Web App_ from the _Workflows_ sidebar.
+1. Navigate to [repository actions](/../../actions/workflows/web_app.yml). (_If that link doesn't open the "Build and deploy Python app" workflow, make sure you're reading this on your own copy of the repo._)
 3. Select _Run workflow_ and select the green button inside the pop-up to run the workflow.
 
 **Deploying can take a couple of minutes**. Make sure you stream the logs in the Azure Cloud Shell to check the progress:
