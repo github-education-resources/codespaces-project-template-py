@@ -1,10 +1,15 @@
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=526682400)
 
-# Python HTTP API for use with GitHub Codespaces
+# Python HTTP API with GitHub Codespaces and Copilot
 
 _Run a Python API in this ready-to-use-repository in minutes_
 
-By opening this template respository in Codespaces, you can quickly get hands-on with a Python web app that serves an HTTP API using the [FastAPI](https://fastapi.tiangolo.com/) framework. You'll get to focus on working with the project instead of setup and configuration.
+By opening this template respository in Codespaces, you can quickly get hands-on with a Python web app that serves an HTTP API. You'll get to focus on working with the project instead of setup and configuration. And then you'll make changes to the code using [GitHub Copilot](https://copilot.github.com/), a new AI-powered code completion tool that helps you write code faster.
+
+## 🚀 Quick start
+1. [Follow the steps](#--try-it-out) to setup your Codespace and run the app.
+1. [Make changes to the application](#make-changes-using-copilot) using [GitHub Copilot](https://copilot.github.com/) to make changes to the code.
+1. Take the challenge and deploy your app to Azure.
 
 🤔 Curious? Watch the following video where we explain all the details:
 
@@ -18,7 +23,7 @@ By opening this template respository in Codespaces, you can quickly get hands-on
    An HTTP API allows an Internet-connected computer to send an HTTP request to another Internet-connected computer
     and receive a response. For example, my computer could send a request to
    `http://a-weather-website-api.com/api/city=Los+Angeles` and receive back data like `{"high": 72, "low": 66}`.
-   
+
    HTTP APIs often provide either data or functionality that's unique to a service, like the example API for the weather website. A weather website could provide additional API endpoints for other weather-related functionality, like upcoming forecasts or historical data. Any website can decide to offer an API if it thinks it has helpful functionality to share
    with other computers. In this project, you'll run an HTTP API that generates a random token.
 </details>
@@ -41,9 +46,9 @@ Here are the key files and folders that make it happen:
 
 - [webapp/](./.webapp): The HTTP API code, built with the FastAPI framework.
 - [.devcontainer/Dockerfile](./.devcontainer/Dockerfile): Configuration file used by Codespaces to determine operating system and other details.
-- [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json), A configuration file used by Codespaces to configure [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza) settings, such as the enabling of additional extensions. 
+- [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json), A configuration file used by Codespaces to configure [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza) settings, such as the enabling of additional extensions.
 
-## 🧐 Try it out
+## 🧐 Use Codespaces
 
 Try out this template repository using Codespaces following these steps:
 
@@ -170,6 +175,151 @@ To find the unique identifier of an extension:
 
 - Navigate to the extension's web page, for example [https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter&WT.mc_id=academic-77460-alfredodeza)
 - Locate the *Unique Identifier* field under **More info** section on your right side.
+
+</details>
+
+
+## Make changes using Copilot
+
+Let's go through some steps to make changes to the code using Copilot. This is a great way to learn how to use Copilot and get useful suggestions for faster development.
+
+This Codespaces repository has the Copilot extension enabled already. Make sure your account has access to it. If you don't have access, you can [request it](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) and then install the extension[here](https://aka.ms/get-copilot). If you are a student, you can get Copilot for free [following these instructions](https://techcommunity.microsoft.com/t5/educator-developer-blog/step-by-step-setting-up-github-student-and-github-copilot-as-an/ba-p/3736279?WT.mc_id=academic-0000-alfredodeza).
+
+Verify Copilot is running
+
+<details>
+<summary><b>Use Copilot</b></summary>
+
+### Step 1: Change the HTML to make it interactive
+Open the [index.html file](./webapp/static/index.html) and delete the following line:
+
+```html
+<button onclick="window.location.href='/docs'" type="button" class="btn btn-info">Try it out</button>
+```
+
+Now add a comment so that Copilot can generate code for you:
+
+```html
+<!-- create an interactive form using javascript that accepts text as input. The form must display a button and submit an asynchronous request to the /generate API endpoint -->
+```
+This should be enough for Copilot to generate code for you after you press `Enter` (or `Return`). The generated code should look like this:
+
+```html
+              <form id="form">
+                <input type="text" id="input" placeholder="Enter text here">
+                <button type="button" id="button" class="btn btn-info">Generate</button>
+              </form>
+              <div id="result"></div>
+              <script>
+                const button = document.getElementById('button');
+                const form = document.getElementById('form');
+                button.addEventListener('click', async (event) => {
+                  event.preventDefault();
+                  const input = document.getElementById('input').value;
+                  const response = await fetch('/generate', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: input })
+                  });
+                  const data = await response.json();
+                  const result = document.getElementById('result');
+                  result.innerHTML = data.result;
+                });
+              </script>
+```
+
+Run the application and verify the form shows up.
+
+### Step 2: Update the HTML to fix a bug
+The generated code introduced a couple of issues. First, the button is not working. Second, the form is not using the right JSON key when submitting the text to the API endpoint. Let's fix that.
+
+Change the body of the request to use the length key instead of text:
+
+```javascript
+body: JSON.stringify({ length: input })
+```
+
+Now, lets change the `innerHTML` to use the `token` key instead of `result`:
+
+```javascript
+result.innerHTML = data.token;
+```
+
+Run the application and verify the form is now working.
+
+### Step 3: Change the form to use a dropdown
+The form is currently accepting any text as input. Let's change it to use a dropdown instead. Add a comment so that Copilot can generate code for you. Delete the following line:
+
+```html
+<input type="text" id="input" placeholder="Enter text here">
+```
+
+And add the following comment so that Copilot can generate code for you:
+
+```html
+<!-- create an input with a drop down menu to select from the following values: 5, 10, 15, 20-->
+```
+
+The generated code should now look like this:
+
+```html
+<select id="input">
+   <option value="5">5</option>
+   <option value="10">10</option>
+   <option value="15">15</option>
+   <option value="20">20</option>
+</select>
+```
+
+Run the application again to verify the dropdown is working.
+
+### Step 4: Add a new API endpoint
+Now let's add some new functionality to the API. Add a new endpoint to the API that accepts a text and returns a list of tokens. Add the following comment so that Copilot can generate a Pydantic model for you:
+
+```python
+# Create a Pydantic model that accepts a JSON body with a single field called "text", which is a string
+```
+
+The generated model should look like this:
+
+```python
+class Text(BaseModel):
+    text: str
+```
+
+Next, add the following comment so that Copilot can add a new endpoint:
+
+```python
+# Create a FastAPI endpoint that accepts a POST request with a JSON body containing a single field called "text" and returns a checksum of the text
+```
+
+The generated code should look like this:
+
+```python
+@app.post('/checksum')
+def checksum(body: Text):
+    """
+    Generate a checksum of the text. Example POST request body:
+
+    {
+        "text": "Hello World!"
+    }
+    """
+    checksum = base64.b64encode(os.urandom(64))[:20].decode('utf-8')
+    return {'checksum': checksum}
+```
+
+The generated code will cause the application to crash. This is because the `base64` and `os` modules are not imported. Add the following lines to the top of the file:
+
+```python
+import base64
+```
+
+Finally, verify the new endpoint is working by going to the `/docs` page and trying out the new endpoint.
+
+Congratulations! You've used Copilot to not only generate code, but also do it in a way that is interactive and fun. You can now use Copilot to generate code for you in any of your projects, including writing documentation, generating models, and more! Even portions of this README were generated using Copilot suggestions 🧐
 
 </details>
 
@@ -304,5 +454,5 @@ Update both variables to match your environment.
 - [Codespaces](https://github.com/features/codespaces)
 - [Use Dev containers locally](https://github.com/Microsoft/vscode-remote-try-python)
 
-### 🔎 Found an issue or have an idea for improvement? 
+### 🔎 Found an issue or have an idea for improvement?
 Help us make this template repository better by [letting us know and opening an issue!](/../../issues/new).
