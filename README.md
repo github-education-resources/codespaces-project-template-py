@@ -208,6 +208,7 @@ Now add a comment so that Copilot can generate code for you:
 ```
 This should be enough for Copilot to generate code for you after you press `Enter` (or `Return`). 
 If not, use `Ctrl+Enter` to give multiple suggestions, choose one that fits better to the code below.
+Remember, it is possible that copilot will not generate the exact snippet! In this case, type or overwrite the suggestion for the code below. 
 The generated code should look like this:
 
 ```html
