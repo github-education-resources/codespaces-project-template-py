@@ -204,7 +204,7 @@ Open the [index.html file](./webapp/static/index.html) and delete the following 
 Now add a comment so that Copilot can generate code for you:
 
 ```html
-<!-- create an interactive a form with text input and button, and add event listener to button to send POST request to /generate endpoint and display response in a div with id "result" -->
+<!-- create an interactive form with text input and button, and add event listener to button to send POST request to /generate endpoint and display response in a div with id "result" -->
 ```
 This should be enough for Copilot to generate code for you after you press `Enter` (or `Return`). 
 If not, use `Ctrl+Enter` to give multiple suggestions, choose one that fits better to the code below.
