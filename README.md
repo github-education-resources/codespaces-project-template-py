@@ -53,7 +53,7 @@ Here are the key files and folders that make it happen:
 Try out this template repository using Codespaces following these steps:
 
 1. Create a repository from this template. Use this [create repo link](https://github.com/microsoft/codespaces-project-template-py/generate). You can make the repository private or public, up to you.
-1. Before creating the codespace, enable GitHub Copilot for your account! If it is not enabled, take a look on ##
+1. Before creating the codespace, enable GitHub Copilot for your account! If it is not enabled, take a look on [Make changes using Copilot](#make-changes-using-copilot)
 1. Navigate to the main page of the newly created repository.
 1. Under the repository name, use the Code drop-down menu, and in the Codespaces tab, select "Create Codespace on main".
    ![Create Codespace](https://docs.github.com/assets/cb-138303/images/help/codespaces/new-codespace-button.png)
@@ -184,7 +184,7 @@ To find the unique identifier of an extension:
 
 Let's go through some steps to make changes to the code using Copilot. This is a great way to learn how to use Copilot and get useful suggestions for faster development. Note that these are suggested solutions, and we advise that you review them to ensure they are applicable to your code.
 
-This Codespaces repository has the Copilot extension enabled already. Make sure your account has access to it. If you don't have access, you can [request it](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) and then install the extension[here](https://aka.ms/get-copilot). If you are a student, you can get Copilot for free [following these instructions](https://techcommunity.microsoft.com/t5/educator-developer-blog/step-by-step-setting-up-github-student-and-github-copilot-as-an/ba-p/3736279?WT.mc_id=academic-0000-alfredodeza).
+This Codespaces repository has the Copilot extension enabled already. Make sure your account has access to it. If you don't have access, you can [request it](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) and then install the extension [here](https://aka.ms/get-copilot). If you are a student, you can get Copilot for free [following these instructions](https://techcommunity.microsoft.com/t5/educator-developer-blog/step-by-step-setting-up-github-student-and-github-copilot-as-an/ba-p/3736279?WT.mc_id=academic-0000-alfredodeza).
 
 To ensure that Copilot is running correctly, please follow these steps:
 
