@@ -53,6 +53,7 @@ Here are the key files and folders that make it happen:
 Try out this template repository using Codespaces following these steps:
 
 1. Create a repository from this template. Use this [create repo link](https://github.com/microsoft/codespaces-project-template-py/generate). You can make the repository private or public, up to you.
+1. Before creating the codespace, enable GitHub Copilot for your account! If it is not enabled, take a look on ##
 1. Navigate to the main page of the newly created repository.
 1. Under the repository name, use the Code drop-down menu, and in the Codespaces tab, select "Create Codespace on main".
    ![Create Codespace](https://docs.github.com/assets/cb-138303/images/help/codespaces/new-codespace-button.png)
@@ -181,11 +182,14 @@ To find the unique identifier of an extension:
 
 ## Make changes using Copilot
 
-Let's go through some steps to make changes to the code using Copilot. This is a great way to learn how to use Copilot and get useful suggestions for faster development.
+Let's go through some steps to make changes to the code using Copilot. This is a great way to learn how to use Copilot and get useful suggestions for faster development. Note that these are suggested solutions, and we advise that you review them to ensure they are applicable to your code.
 
 This Codespaces repository has the Copilot extension enabled already. Make sure your account has access to it. If you don't have access, you can [request it](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) and then install the extension[here](https://aka.ms/get-copilot). If you are a student, you can get Copilot for free [following these instructions](https://techcommunity.microsoft.com/t5/educator-developer-blog/step-by-step-setting-up-github-student-and-github-copilot-as-an/ba-p/3736279?WT.mc_id=academic-0000-alfredodeza).
 
-Verify Copilot is running
+To ensure that Copilot is running correctly, please follow these steps:
+
+1. Verify if Copilot is activated by navigating to the extension tab in your codespace and checking the status.
+1. If the status is inactive, recreate the codespace, and enable the extension to ensure that it is activated.
 
 <details>
 <summary><b>Use Copilot</b></summary>
@@ -200,9 +204,11 @@ Open the [index.html file](./webapp/static/index.html) and delete the following 
 Now add a comment so that Copilot can generate code for you:
 
 ```html
-<!-- create an interactive form using javascript that accepts text as input. The form must display a button and submit an asynchronous request to the /generate API endpoint -->
+<!-- create an interactive a form with text input and button, and add event listener to button to send POST request to /generate endpoint and display response in a div with id "result" -->
 ```
-This should be enough for Copilot to generate code for you after you press `Enter` (or `Return`). The generated code should look like this:
+This should be enough for Copilot to generate code for you after you press `Enter` (or `Return`). 
+If not, use `Ctrl+Enter` to give multiple suggestions, choose one that fits better to the code below.
+The generated code should look like this:
 
 ```html
               <form id="form">
