@@ -191,6 +191,10 @@ To ensure that Copilot is running correctly, please follow these steps:
 1. Verify if Copilot is activated by navigating to the extension tab in your codespace and checking the status.
 1. If the status is inactive, recreate the codespace, and enable the extension to ensure that it is activated.
 
+🤔 Curious? Watch the following video where we explain all the details:
+
+[![Assisted AI Coding with GitHub Copilot](https://img.youtube.com/vi/9c7SSHbzD80/0.jpg)](https://youtu.be/9c7SSHbzD80 "Assisted AI Coding with GitHub Copilot")
+
 <details>
 <summary><b>Use Copilot</b></summary>
 
