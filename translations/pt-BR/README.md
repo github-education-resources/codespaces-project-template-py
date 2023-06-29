@@ -1,5 +1,4 @@
 
-
 [![Abrir no GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=526682400)
 
 # API HTTP Python com GitHub Codespaces e Copilot
