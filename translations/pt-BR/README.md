@@ -5,12 +5,12 @@
 
 _Execute uma API Python neste repositório pronto para uso em minutos_
 
-Ao abrir este modelo de repositório no Codespaces, você pode rapidamente experimentar um aplicativo da web Python que serve uma API HTTP. Você poderá se concentrar no trabalho com o projeto em vez de configuração e instalação. Em seguida, você fará alterações no código usando o [GitHub Copilot](https://copilot.github.com/), uma nova ferramenta de conclusão de código alimentada por IA que ajuda você a escrever código mais rapidamente.
+Ao abrir este modelo de repositório no Codespaces, você poderá, rapidamente, desenvolver um aplicativo da web Python que serve uma API HTTP. Você poderá se concentrar no trabalho com o projeto em vez de configuração e instalação. Em seguida, você fará alterações no código usando o [GitHub Copilot](https://copilot.github.com/), uma nova ferramenta de conclusão de código alimentada por IA que ajuda você a escrever código mais rapidamente.
 
 ## 🚀 Início rápido
 1. [Siga as etapas](#--try-it-out) para configurar seu Codespace e executar o aplicativo.
 2. [Faça alterações no aplicativo](#faça-alterações-usando-o-Copilot) usando o [GitHub Copilot](https://copilot.github.com/) para modificar o código.
-3. Aceite o desafio e implante seu aplicativo no Azure.
+3. Aceite o desafio e publique seu aplicativo no Azure.
 
 🤔 Curioso? Assista ao seguinte vídeo onde explicamos todos os detalhes:
 
@@ -40,9 +40,9 @@ Você também pode configurar o seu container de desenvolvimento para executar u
 
 Aqui estão os arquivos e pastas principais que tornam isso possível:
 
-- [webapp/](./.webapp): O código da API HTTP, construído com o framework FastAPI.
-- [.devcontainer/Dockerfile](./.devcontainer/Dockerfile): Arquivo de configuração usado pelo Codespaces para determinar o sistema operacional e outros detalhes.
-- [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json): Um arquivo de configuração usado pelo Codespaces para configurar as configurações do [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza), como a ativação de extensões adicionais.
+- [webapp/](/webapp): O código da API HTTP, construído com o framework FastAPI.
+- [.devcontainer/Dockerfile](/.devcontainer/Dockerfile): Arquivo de configuração usado pelo Codespaces para determinar o sistema operacional e outros detalhes.
+- [.devcontainer/devcontainer.json](/.devcontainer/devcontainer.json): Um arquivo de configuração usado pelo Codespaces para configurar as configurações do [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza), como a ativação de extensões adicionais.
 
 ## 🧐 Usando o Codespaces
 
