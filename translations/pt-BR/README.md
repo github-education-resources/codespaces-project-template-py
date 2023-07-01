@@ -64,9 +64,25 @@ Neste ponto, você tem um ambiente pré-configurado no qual todos os tempos de e
 
 Este aplicativo Python está usando o FastAPI, um poderoso framework da web que documenta automaticamente seus endpoints de API. A API tem apenas um endpoint que gera uma sequência pseudoaleatória única que pode ser usada como um token.
 
+
 ![Executando o FastAPI](https://github.com/Corttezz/codespaces-project-template-py/assets/106662629/87b84e79-51c7-4d73-9c21-ff6403e64e35)
 
+<details>
+<summary> <b>O que é um ponto de extremidade?</b></summary>
 
+Um ponto de extremidade é uma URL estável e durável que representa um recurso específico em uma API. Ele fornece uma maneira de interagir com esse recurso, enviar solicitações e receber respostas. Em termos simples, um ponto de extremidade é um "ponto de entrada" para uma API.
+
+Características de um ponto de extremidade:
+
+- **URL estável e durável**: Um ponto de extremidade é acessado por meio de uma URL específica, que permanece consistente ao longo do tempo. Por exemplo, https://api.exemplo.com/recurso.
+
+- **Mecanismo de autenticação e autorização**: Para garantir a segurança e controlar o acesso ao recurso, os pontos de extremidade podem exigir autenticação e autorização. Isso pode envolver o uso de tokens, chaves de API ou outros métodos de autenticação.
+
+- **Implantação e roteamento**: Um ponto de extremidade pode ter várias implantações, que são responsáveis por executar a lógica do recurso e fornecer as respostas adequadas. Essas implantações podem estar localizadas em servidores diferentes, dependendo dos requisitos de recursos e escalabilidade. O mecanismo de roteamento direciona as solicitações recebidas para as implantações corretas.
+
+Portanto, um ponto de extremidade é um componente fundamental em uma API. Ele representa um recurso específico e define a maneira como os clientes podem interagir com ele, fornecendo uma URL estável, um mecanismo de autenticação e autorização, e encaminhando as solicitações para as implantações corretas.
+
+</details>
 <details>
 <summary><b>Executando o FastAPI dentro do Codespace</b></summary>
 
@@ -106,18 +122,18 @@ A API incluída neste modelo de repositório possui um único endpoint que gera 
 
 ## Personalize o Codespace
 
-Você pode alterar o seu ambiente e o editor de texto para que, da próxima vez que você criar (ou reconstruir) o ambiente, tudo seja configurado automaticamente. Vamos passar por dois desafios diferentes que você provavelmente desejará fazer:
+Você pode alterar o seu ambiente e o editor de texto para que, da próxima vez que você criar (ou reconstruir) o ambiente, tudo seja configurado automaticamente. Vamos abordar dois desafios diferentes e que você provavelmente deseja fazer:
 
-1. Alterando a versão do Python
-2. Adicionando ou modificando uma extensão do editor pré-instalada
+1. Alterar a versão do Python instalada
+2. Adicionar ou modificar uma extensão do editor pré-instalada
 
 <details>
 
-### Passo 1: Alterar o ambiente do Python
+### Passo 1:  Alterar a versão do Python instalada
 
 Digamos que você queira alterar a versão do Python que está instalada. Isso é algo que você pode controlar.
 
-Abra o arquivo [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) e substitua a seguinte seção:
+Abra o arquivo [.devcontainer/devcontainer.json](/.devcontainer/devcontainer.json) e substitua a seguinte seção:
 
 ```json
 "VARIANT": "3.8-bullseye"
@@ -135,13 +151,13 @@ Se você fizer qualquer alteração de configuração no `devcontainer.json`, um
 
 ![Recriando Codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
 
-Clique em "Rebuild". Aguarde o seu Codespace reconstruir o ambiente do VS Code.
+Clique em Rebuild (em português, "Reconstruir"). Aguarde o seu Codespace reconstruir o ambiente do VS Code.
 
-### Passo 2: Adicionar uma extensão
+### Passo 2: Adicionar ou modificar uma extensão do editor pré-instalada
 
 Seu ambiente vem com extensões pré-instaladas. Você pode alterar quais extensões o ambiente do Codespaces inicia. Veja como fazer:
 
-1. Abra o arquivo [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) e localize o seguinte elemento JSON **extensions**:
+1. Abra o arquivo [.devcontainer/devcontainer.json](/.devcontainer/devcontainer.json) e localize o seguinte elemento JSON **extensions**:
 
    ```json
    "extensions": [
@@ -166,7 +182,7 @@ Seu ambiente vem com extensões pré-instaladas. Você pode alterar quais extens
 
    ![Recriando Codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
 
-   Clique em "Rebuild". Aguarde o seu Codespace reconstruir o ambiente do VS Code.
+   Clique em Rebuild (em português, "Reconstruir"). Aguarde o seu Codespace reconstruir o ambiente do VS Code.
 
 Para encontrar o identificador único de uma extensão:
 
@@ -193,7 +209,7 @@ Para garantir que o Copilot esteja funcionando corretamente, siga estas etapas:
 [![Assisted AI Coding with GitHub Copilot](https://img.youtube.com/vi/9c7SSHbzD80/0.jpg)](https://youtu.be/9c7SSHbzD80 "Assisted AI Coding with GitHub Copilot")
 
 <details>
-<summary><b>Usar o Copilot</b></summary>
+<summary><b>Utilizando o Copilot</b></summary>
 
 ### Passo 1: Alterar o HTML para torná-lo interativo
 
@@ -289,9 +305,9 @@ O código gerado agora deve ficar assim:
 
 Execute a aplicação novamente para verificar se o menu suspenso está funcionando corretamente.
    
-### Passo 4: Adicionar um novo endpoint à API
+### Passo 4: Adicionar um novo ponto de extremidade (endpoint) à API
 
-Agora vamos adicionar uma nova funcionalidade à API. Adicione um novo endpoint à API que aceite um texto e retorne uma lista de tokens. Adicione o seguinte comentário para que o Copilot possa gerar um modelo Pydantic para você:
+Agora vamos adicionar uma nova funcionalidade à API. Adicione um novo ponto de extremidade (endpoint) à API que aceite um texto e retorne uma lista de tokens. Adicione o seguinte comentário para que o Copilot possa gerar um modelo Pydantic para você:
 
 ```python
 # Crie um modelo Pydantic que aceita um corpo JSON com um único campo chamado "text", que é uma string
@@ -333,7 +349,7 @@ import base64
 import os
 ```
 
-Por fim, verifique se o novo endpoint está funcionando acessando a página `/docs` e testando o novo endpoint.
+Por fim, verifique se o novo ponto de extremidade (endpoint) está funcionando acessando a página `/docs` e testando o novo endpoint.
 
 Parabéns! Você usou o Copilot não apenas para gerar código, mas também para fazer isso de forma interativa e divertida. Agora você pode usar o Copilot para gerar código em qualquer um de seus projetos, incluindo escrever documentação, gerar modelos e muito mais! Até mesmo partes deste README foram geradas usando sugestões do Copilot 🧐
    
@@ -341,7 +357,7 @@ Parabéns! Você usou o Copilot não apenas para gerar código, mas também para
 
 ## 🚀 Próximos passos
 
-Leve essa aplicação da API para o próximo nível e faça o deploy na nuvem! Para este desafio de aprendizado, você usará uma opção de implantação GRATUITA no Azure e o GitHub Actions para a automação.
+Leve essa aplicação da API para o próximo nível e faça a sua publicação na nuvem! Para este desafio de aprendizado, você usará uma opção para publicar GRATUITAMENTE no Azure e o GitHub Actions para a automação.
 
 Antes de continuar, certifique-se de ter uma conta no Azure pronta. Selecione uma das opções a seguir:
 
@@ -354,10 +370,10 @@ Há algumas etapas envolvidas, então certifique-se de fazer tudo corretamente!
 <details>
 <summary><b>Criar um Serviço de Aplicativo do Azure</b></summary>
 
-Agora você irá configurar a implantação automática da aplicação usando o Azure e o GitHub Actions! No entanto, primeiro você precisa configurar alguns serviços do Azure.
+Agora você irá configurar a publicação automática da aplicação usando o Azure e o GitHub Actions! No entanto, primeiro você precisa configurar alguns serviços do Azure.
 
 1. Abra o [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-77460-alfredodeza).
-2. Use o shell Bash (não o PowerShell!) para executar estas etapas.
+2. Use o Bash Shell (não o PowerShell!) para executar estas etapas.
 3. Se aparecer a mensagem "You have no storage mounted", selecione uma assinatura em sua conta e clique em "Create storage". O Cloud Shell usará esse recurso de armazenamento para armazenar os dados gerados durante suas sessões no shell.
 4. Crie um *Grupo de Recursos* que agrupará os diferentes recursos do Azure usados pela aplicação:
 ```
@@ -382,14 +398,14 @@ az webapp create --name "demo-fastapi-$randomIdentifier" --resource-group demo-f
 
 
 <details>
-<summary><b>Criar um Principal de Serviço do Azure</b></summary>
+<summary><b>Criando um Azure Service Principal</b></summary>
 
-A seguir, crie um Principal de Serviço do Azure, que é um tipo especial de conta que possui as permissões necessárias para autenticação do GitHub no Azure:
+A seguir, crie um Azure Service Principal, que é um tipo especial de conta que possui as permissões necessárias para autenticação do GitHub no Azure:
 
 1. Encontre o ID de sua assinatura do Azure
 
  [no portal do Azure](https://portal.azure.com/#view/Microsoft_Azure_Billing/SubscriptionsBlade?WT.mc_id=academic-77460-alfredodeza) ou [seguindo este guia](https://learn.microsoft.com/azure/azure-portal/get-subscription-tenant-id?WT.mc_id=academic-77460-alfredodeza).
-2. Crie um Principal de Serviço com a função "contributor" que está autorizada a fazer alterações em todos os recursos dessa assinatura. Substitua $AZURE_SUBSCRIPTION_ID pelo ID encontrado no passo 1 e execute o seguinte comando:
+2. Crie um Azure Service Principal com a função "contributor" que está autorizada a fazer alterações em todos os recursos dessa assinatura. Substitua $AZURE_SUBSCRIPTION_ID pelo ID encontrado no passo 1 e execute o seguinte comando:
 
 ```
 az ad sp create-for-rbac  --sdk-auth --name "github-deployer" --role contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID
@@ -422,12 +438,12 @@ git push
 
 Antes de continuar, verifique o seguinte:
 
-1. Você criou um Principal de Serviço do Azure e o salvou como um [segredo do repositório](/../../settings/secrets/) chamado `AZURE_CREDENTIALS`.
+1. Você criou um Azure Service Principal e o salvou como um [segredo do repositório](/../../settings/secrets/) chamado `AZURE_CREDENTIALS`.
 2. Você criou um [Serviço de Aplicativo](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) com um nome válido e o site já está disponível com o conteúdo estático padrão.
 
 Para implantar:
 
-1. Acesse [ações do repositório](/../../actions/workflows/web_app.yml). (_Se esse link não abrir o fluxo de trabalho "Build and deploy Python app", certifique-se de que você está lendo isso em sua própria cópia do repositório._)
+1. Acesse [Actions do repositório](/../../actions/workflows/web_app.yml). (_Se esse link não abrir o fluxo de trabalho "Build and deploy Python app", certifique-se de que você está lendo isso em sua própria cópia do repositório._)
 2. Selecione _Run workflow_ e clique no botão verde dentro da janela pop-up para executar o fluxo de trabalho.
 
 **A implantação pode levar alguns minutos**. Certifique-se de transmitir os logs no Azure Cloud Shell para verificar o progresso:
@@ -472,4 +488,4 @@ Atualize ambas as variáveis para corresponder ao seu ambiente.
 - [Use containers de desenvolvimento localmente](https://github.com/Microsoft/vscode-remote-try-python)
 
 ### 🔎 Encontrou algum problema ou tem uma ideia de melhoria?
-Ajude-nos a melhorar este repositório de modelo [nos informando e abrindo uma issue!](/../../issues/new).
+Ajude-nos a melhorar este repositório de modelo [nos informando e abrindo uma issue!](https://github.com/education/codespaces-project-template-py/issues/new).
