@@ -86,7 +86,7 @@ Portanto, um ponto de extremidade é um componente fundamental em uma API. Ele r
 <details>
 <summary><b>Executando o FastAPI dentro do Codespace</b></summary>
 
-A API incluída neste modelo de repositório possui um único endpoint que gera um token. Coloque-a em funcionamento seguindo as etapas a seguir:
+A API incluída neste modelo de repositório possui um único ponto de extremidade (endpoint) que gera um token. Coloque-a em funcionamento seguindo as etapas a seguir:
 
 1. Abra um terminal, abrindo o painel de comandos (Ctrl-Shift-P ou Cmd-Shift-P) e selecione o comando "Abrir novo terminal".
 2. Execute `uvicorn` no console para iniciar o aplicativo da API:
@@ -197,7 +197,7 @@ Para encontrar o identificador único de uma extensão:
 
 Vamos seguir algumas etapas para fazer alterações no código usando o Copilot. Essa é uma ótima maneira de aprender a usar o Copilot e obter sugestões úteis para um desenvolvimento mais rápido. Observe que essas são soluções sugeridas, e aconselhamos que você as revise para garantir que sejam aplicáveis ao seu código.
 
-Este repositório do Codespaces já tem a extensão Copilot habilitada. Verifique se sua conta tem acesso a ela. Se você não tiver acesso, pode [solicitar](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) e, em seguida, instale a extensão [aqui](https://aka.ms/get-copilot). Se você for estudante, pode obter o Copilot gratuitamente [seguindo estas instruções](https://techcommunity.microsoft.com/t5/educator-developer-blog/step-by-step-setting-up-github-student-and-github-copilot-as-an/ba-p/3736279?WT.mc_id=academic-0000-alfredodeza).
+Este repositório do Codespaces já tem a extensão Copilot habilitada. Verifique se sua conta tem acesso a ela. Se você não tiver acesso, pode [solicitar](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) e, em seguida, instale a extensão [aqui](https://aka.ms/get-copilot). Se você for estudante, pode obter o Copilot gratuitamente [seguindo estas instruções](https://techcommunity.microsoft.com/t5/desenvolvedores-br/como-obter-github-copilot-gratuito-para-estudantes-e-professores/ba-p/3828780?WT.mc_id=academic-97170-cyzanon).
 
 Para garantir que o Copilot esteja funcionando corretamente, siga estas etapas:
 
