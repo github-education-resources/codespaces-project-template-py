@@ -74,7 +74,7 @@ Um ponto de extremidade é uma URL estável e durável que representa um recurso
 
 Características de um ponto de extremidade:
 
-- **URL estável e durável**: Um ponto de extremidade é acessado por meio de uma URL específica, que permanece consistente ao longo do tempo. Por exemplo, https://api.exemplo.com/recurso.
+- **URL estável e durável**: Um ponto de extremidade é acessado por meio de uma URL específica, que permanece consistente ao longo do tempo. Por exemplo, uma URL estável e durável (como endpoint-name.region.inference.ml.azure.com).
 
 - **Mecanismo de autenticação e autorização**: Para garantir a segurança e controlar o acesso ao recurso, os pontos de extremidade podem exigir autenticação e autorização. Isso pode envolver o uso de tokens, chaves de API ou outros métodos de autenticação.
 
