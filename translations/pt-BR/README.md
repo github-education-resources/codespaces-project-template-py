@@ -1,83 +1,101 @@
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=526682400)
 
-# Python HTTP API  com codespaces GitHub
+[![Abrir no GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=526682400)
 
-_Execute uma API com Python neste repositório pronto para uso em minutos_
+# API HTTP Python com GitHub Codespaces e Copilot
 
-Ao abrir este template no Codespaces, você pode rapidamente obter hands-on com um aplicativo web Python que serve uma API HTTP usando a estrutura do [FastAPI](https://fastapi.tiangolo.com/). Você poderá se concentrar em trabalhar com o projeto em vez de configurar tudo.
+_Execute uma API Python neste repositório pronto para uso em minutos_
 
-🤔 Curioso? Veja o vídeo para mais detalhes:
+Ao abrir este modelo de repositório no Codespaces, você poderá, rapidamente, desenvolver um aplicativo da web Python que serve uma API HTTP. Você poderá se concentrar no trabalho com o projeto em vez de configuração e instalação. Em seguida, você fará alterações no código usando o [GitHub Copilot](https://copilot.github.com/), uma nova ferramenta de conclusão de código alimentada por IA que ajuda você a escrever código mais rapidamente.
 
-[![Python development environment with Codespaces](https://img.youtube.com/vi/_i9Pywj3rSg/0.jpg)](https://youtu.be/_i9Pywj3rSg "Python Development environment with Codespaces")
+## 🚀 Início rápido
+1. [Siga as etapas](#--try-it-out) para configurar seu Codespace e executar o aplicativo.
+2. [Faça alterações no aplicativo](#faça-alterações-usando-o-Copilot) usando o [GitHub Copilot](https://copilot.github.com/) para modificar o código.
+3. Aceite o desafio e publique seu aplicativo no Azure.
 
+🤔 Curioso? Assista ao seguinte vídeo onde explicamos todos os detalhes:
+
+[![Ambiente de desenvolvimento Python com Codespaces](https://img.youtube.com/vi/_i9Pywj3rSg/0.jpg)](https://youtu.be/_i9Pywj3rSg "Ambiente de desenvolvimento Python com Codespaces")
 
 <details>
-   <summary><strong>Aprenda mais sobre APIs</strong></summary>
+   <summary><strong>Saiba mais sobre APIs</strong></summary>
 
-   Uma API (Application Programming Interface) descreve uma maneira de dois computadores interagirem.
-   Uma API HTTP permite que um computador conectado à Internet envie uma solicitação HTTP para outro computador conectado à Internet
-    e receber uma resposta. Por exemplo, meu computador poderia enviar uma solicitação para
-   'http://a-weather-website-api.com/api/city=Los+Angeles' e receber de volta dados como '{"high": 72, "low": 66}'.
-   
-   APIs HTTP provem dados ou funcionalidade que é unico a um serviço, como o exemplo API para o site meteorológico. Um site meteorológico poderia fornecer pontos finais adicionais da API para outras funcionalidades relacionadas ao clima, como previsões futuras ou dados históricos. Qualquer site pode decidir oferecer uma API se achar que tem funcionalidade útil para compartilhar
-   com outros computadores. Neste projeto, você vai executar uma API HTTP que gera um token randomico.
+   Uma API (Interface de Programação de Aplicativos) descreve uma maneira para dois computadores interagirem. Uma API HTTP permite que um computador conectado à Internet envie uma solicitação HTTP para outro computador conectado à Internet e receba uma resposta. Por exemplo, meu computador pode enviar uma solicitação para `http://um-site-de-previsao-do-tempo.com/api/cidade=Los+Angeles` e receber dados de volta, como `{"alta": 72, "baixa": 66}`.
+
+   APIs HTTP frequentemente fornecem dados ou funcionalidades exclusivas de um serviço, como o exemplo da API do site de previsão do tempo. Um site de previsão do tempo pode fornecer endpoints de API adicionais para outras funcionalidades relacionadas ao clima, como previsões futuras ou dados históricos. Qualquer site pode optar por oferecer uma API se acreditar que possui funcionalidades úteis para compartilhar com outros computadores. Neste projeto, você executará uma API HTTP que gera um token aleatório.
 </details>
 
-Este modelo também está pronto para ser usado com [Codespaces](https://github.com/features/codespaces), um ambiente de desenvolvedor em execução na nuvem com [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza).
-<details>
-   <summary><b>🎥 Veja esse tutorial para aprender mais sobre codespaces (Em Inglês)</b></summary>
+Este modelo também está pronto para ser usado com o [Codespaces](https://github.com/features/codespaces), um ambiente de desenvolvimento executado na nuvem com o [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza).
 
-   [![Codespaces Tutorial](https://img.youtube.com/vi/ozuDPmcC1io/0.jpg)](https://aka.ms/CodespacesVideoTutorial "Codespaces Tutorial")
+<details>
+   <summary><b>🎥 Assista ao tutorial em vídeo para aprender mais sobre Codespaces</b></summary>
+
+   [![Tutorial do Codespaces](https://img.youtube.com/vi/ozuDPmcC1io/0.jpg)](https://aka.ms/CodespacesVideoTutorial "Tutorial do Codespaces")
 </details>
 
 ## Para estudantes e desenvolvedores
 
-Utilizando Codespaces, você consegue uma instância do [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza) na nuvem, utilizando um ["container de desenvolvimento"](https://containers.dev/). Como na versão normal do [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza), a versão em cloud permite você instalar extensões e usar um terminal.
+Usando o Codespaces, você obtém o [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza) na nuvem, usando um ["container de desenvolvimento"](https://containers.dev/). Assim como a versão local do [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza), a versão na nuvem também permite que você instale extensões e use um terminal.
 
-Você também pode configurar seu container de desenvolvimento para executar para executar a specific runtime and have it boot up with your favorite extensions.
+Você também pode configurar o seu container de desenvolvimento para executar um tempo de execução específico e inicializá-lo com as suas extensões favoritas.
 
-Aqui estão os arquivos chaves e as pastas necessárias para tudo funcionar:
+Aqui estão os arquivos e pastas principais que tornam isso possível:
 
-- [webapp/](./.webapp): O código da API HTTP, feita com o framework FastAPI.
-- [.devcontainer/Dockerfile](./.devcontainer/Dockerfile): Arquivo de configuração utilizada pelo Codespaces para determinar o sistema operacional e outras variáveis.
-- [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json), Um arquivo de configuração para o Codespaces configurando o [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza), como habilitar extensões! 
+- [webapp/](/webapp): O código da API HTTP, construído com o framework FastAPI.
+- [.devcontainer/Dockerfile](/.devcontainer/Dockerfile): Arquivo de configuração usado pelo Codespaces para determinar o sistema operacional e outros detalhes.
+- [.devcontainer/devcontainer.json](/.devcontainer/devcontainer.json): Um arquivo de configuração usado pelo Codespaces para configurar as configurações do [Visual Studio Code](https://visualstudio.microsoft.com/?WT.mc_id=academic-77460-alfredodeza), como a ativação de extensões adicionais.
 
-## 🧐 Experimente
+## 🧐 Usando o Codespaces
 
-Experimente este template utilizando codespaces seguindo esses passos:
+Experimente este modelo de repositório usando o Codespaces seguindo estes passos:
 
-1. Crie um repositório a partir deste template. Use este [link para gerar um repositório](https://github.com/microsoft/codespaces-project-template-py/generate). Você pode tornar o repositório privado ou público, até você.
-1. Navegue até a página principal do repositório recém-criado.
-1. No nome do repositório, use o menu dropdwon em code e, na guia Codespaces, selecione "Create Codespace on main".
-   ![Create Codespace](https://docs.github.com/assets/cb-138303/images/help/codespaces/new-codespace-button.png)
-1. Aguarde enquanto Github inicializa o codespace:
-   ![Creating Codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_build.png)
+1. Crie um repositório a partir deste modelo. Use este [link de criação do repositório](https://github.com/microsoft/codespaces-project-template-py/generate). Você pode tornar o repositório privado ou público, conforme sua preferência.
+2. Antes de criar o codespace, habilite o GitHub Copilot para a sua conta! Se não estiver habilitado, dê uma olhada em [Faça alterações usando o Copilot](#make-changes-using-copilot).
+3. Acesse a página principal do repositório recém-criado.
+4. Abaixo do nome do repositório, use o menu suspenso Code e, na guia Codespaces, selecione "Criar Codespace em main".
+   ![Criar Codespace](https://docs.github.com/assets/cb-138303/images/help/codespaces/new-codespace-button.png)
+5. Aguarde enquanto o GitHub inicializa o codespace:
+   ![Criando Codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_build.png)
 
-### Inspecione seu ambiente do Codespaces
+### Inspecionando o ambiente do Codespaces
 
-O que você tem neste momento é um ambiente pré-configurado onde todos os tempos de execução e bibliotecas que você precisa já estão instalados - uma experiência de configuração zero.
+Neste ponto, você tem um ambiente pré-configurado no qual todos os tempos de execução e bibliotecas de que você precisa já estão instalados - uma experiência de configuração zero.
 
-## Executando o Aplicativo
+## Executando o aplicativo
 
-Este aplicativo Python está usando o FastAPI, uma poderosa framework  Web que auto-documenta seus pontos finais de API. A API tem apenas um ponto final que gera uma sequência pseudoaleatória única que pode ser usada como um token.
+Este aplicativo Python está usando o FastAPI, um poderoso framework da web que documenta automaticamente seus endpoints de API. A API tem apenas um endpoint que gera uma sequência pseudoaleatória única que pode ser usada como um token.
 
 
-![Executando FastAPI](./images/api-running.png)
-
+![Executando o FastAPI](https://github.com/Corttezz/codespaces-project-template-py/assets/106662629/87b84e79-51c7-4d73-9c21-ff6403e64e35)
 
 <details>
-<summary><b>Executando FastAPI dentro do Codespace</b></summary>
+<summary> <b>O que é um ponto de extremidade?</b></summary>
 
-A API incluída neste repositório de modelos tem um único ponto final que gera um token. Colocá-lo em funcionamento usando as seguintes etapas:
+Um ponto de extremidade é uma URL estável e durável que representa um recurso específico em uma API. Ele fornece uma maneira de interagir com esse recurso, enviar solicitações e receber respostas. Em termos simples, um ponto de extremidade é um "ponto de entrada" para uma API.
 
-1. Abra uma janela de terminal abrindo a paleta de comando (Ctrl-Shift-P ou Cmd-Shift-P) e selecione o comando "Open new Terminal".
-1. Execute 'uvicorn' no console para iniciar seu aplicativo de API:
-  
+Características de um ponto de extremidade:
+
+- **URL estável e durável**: Um ponto de extremidade é acessado por meio de uma URL específica, que permanece consistente ao longo do tempo. Por exemplo, uma URL estável e durável (como endpoint-name.region.inference.ml.azure.com).
+
+- **Mecanismo de autenticação e autorização**: Para garantir a segurança e controlar o acesso ao recurso, os pontos de extremidade podem exigir autenticação e autorização. Isso pode envolver o uso de tokens, chaves de API ou outros métodos de autenticação.
+
+- **Implantação e roteamento**: Um ponto de extremidade pode ter várias implantações, que são responsáveis por executar a lógica do recurso e fornecer as respostas adequadas. Essas implantações podem estar localizadas em servidores diferentes, dependendo dos requisitos de recursos e escalabilidade. O mecanismo de roteamento direciona as solicitações recebidas para as implantações corretas.
+
+Portanto, um ponto de extremidade é um componente fundamental em uma API. Ele representa um recurso específico e define a maneira como os clientes podem interagir com ele, fornecendo uma URL estável, um mecanismo de autenticação e autorização, e encaminhando as solicitações para as implantações corretas.
+
+</details>
+<details>
+<summary><b>Executando o FastAPI dentro do Codespace</b></summary>
+
+A API incluída neste modelo de repositório possui um único ponto de extremidade (endpoint) que gera um token. Coloque-a em funcionamento seguindo as etapas a seguir:
+
+1. Abra um terminal, abrindo o painel de comandos (Ctrl-Shift-P ou Cmd-Shift-P) e selecione o comando "Abrir novo terminal".
+2. Execute `uvicorn` no console para iniciar o aplicativo da API:
+
     ```console
     uvicorn --host 0.0.0.0 webapp.main:app --reload
     ```
 
-    Seu output deve ser similar à:
+    Você verá uma saída semelhante a esta:
 
     ```output
     INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
@@ -87,58 +105,59 @@ A API incluída neste repositório de modelos tem um único ponto final que gera
     INFO:     Application startup complete.
     ```
 
-    Você terá um pop-up que diz que seu aplicativo está disponível na porta 8000. Clique no botão para abri-lo no navegador.
-1. Quando o site carregar, clique no _Try it Out_ ou adicione `/docs` na URL. A documentação de API gerada automaticamente deve carregar e ficar assim:
+    Você verá uma janela pop-up informando que o seu aplicativo está disponível na porta 8000. Clique no botão para abri-lo no navegador.
+3. Assim que o site for carregado, clique no botão _Try it Out_ ou adicione `/docs` à URL na barra de endereços. A documentação da API gerada automaticamente deve ser carregada e parecer assim:
 
-   ![OpenAPI docs](./images/fast-api.png)
+ ![Documentação OpenAPI](https://github.com/Corttezz/codespaces-project-template-py/assets/106662629/ca251db8-30dc-46bb-b91e-4012b18bafaf)
 
-1. Finalmente, tente interagir com a API enviando uma solicitação usando a página auto-documentada. Clique no _POST_ e depois no _Try it Out_:
 
-   ![Experimente um POST](./images/try-it-out.png)
+4. Por fim, tente interagir com a API enviando uma solicitação usando a página auto documentada. Clique no botão _POST_ e depois no botão _Try it Out_:
 
-🔒 Você vê o cadeado ao lado da URL do site no navegador? Isso indica que o site está sendo servido sobre uma conexão HTTPS segura que criptografa as respostas HTTP. Isso é muito importante sempre que uma API pode receber dados confidenciais ou responder com dados confidenciais (como uma senha).
+   ![Experimente uma solicitação POST](https://github.com/Corttezz/codespaces-project-template-py/assets/106662629/730e7edc-9669-4c16-9819-466a8b29669b)
+
+
+🔒 Você vê o cadeado ao lado da URL do site no navegador? Isso indica que o site está sendo servido por meio de uma conexão HTTPS segura, que criptografa as respostas HTTP. Isso é muito importante sempre que uma API pode receber dados sensíveis ou responder com dados sensíveis (como uma senha).
 
 </details>
 
-## Customise o Codespace
+## Personalize o Codespace
 
-Você pode alterar seu ambiente e o editor de texto para que, da próxima vez que você criar (ou reconstruir) o ambiente, tudo seja definido automaticamente. Vamos passar por dois desafios diferentes que você provavelmente quer fazer:
+Você pode alterar o seu ambiente e o editor de texto para que, da próxima vez que você criar (ou reconstruir) o ambiente, tudo seja configurado automaticamente. Vamos abordar dois desafios diferentes e que você provavelmente deseja fazer:
 
-1. Mudar a versão do Python
-1. Adicionar ou modificar extensões no Codespaces
-
+1. Alterar a versão do Python instalada
+2. Adicionar ou modificar uma extensão do editor pré-instalada
 
 <details>
 
-### Step 1: Mudar a versão do Python
+### Passo 1:  Alterar a versão do Python instalada
 
-Digamos que você queira alterar qual versão do Python está instalada. Isso é algo que você pode controlar.
+Digamos que você queira alterar a versão do Python que está instalada. Isso é algo que você pode controlar.
 
-Abra [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) e mude a seguinte seção:
+Abra o arquivo [.devcontainer/devcontainer.json](/.devcontainer/devcontainer.json) e substitua a seguinte seção:
 
 ```json
 "VARIANT": "3.8-bullseye"
 ```
 
-com a seguinte instrução:
+pela seguinte instrução:
 
 ```json
 "VARIANT": "3.9-bullseye"
 ```
 
-Essa mudança configura o Codespaces para usar o Python 3.9 invés do 3.8.
+Essa alteração instrui o Codespaces a usar o Python 3.9 em vez do 3.8.
 
-Se você mudar algo no `devcontainer.json`, uma janela vai aparecer após salvar.
+Se você fizer qualquer alteração de configuração no `devcontainer.json`, uma caixa aparecerá após salvar.
 
 ![Recriando Codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
 
-Clique em rebuild. Espere seu Codespace reconstruir o ambiente do VS Code.
+Clique em Rebuild (em português, "Reconstruir"). Aguarde o seu Codespace reconstruir o ambiente do VS Code.
 
-### Step 2: Adicione uma extensão
+### Passo 2: Adicionar ou modificar uma extensão do editor pré-instalada
 
-Seu ambiente vem com extensões pré-instaladas. Você pode alterar quais extensões o ambiente codespaces começa. Veja como:
+Seu ambiente vem com extensões pré-instaladas. Você pode alterar quais extensões o ambiente do Codespaces inicia. Veja como fazer:
 
-1. Abra o arquivo [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) e localize a seção **extensions**:
+1. Abra o arquivo [.devcontainer/devcontainer.json](/.devcontainer/devcontainer.json) e localize o seguinte elemento JSON **extensions**:
 
    ```json
    "extensions": [
@@ -147,7 +166,7 @@ Seu ambiente vem com extensões pré-instaladas. Você pode alterar quais extens
    ]
    ```
 
-1. Adiciona _"ms-python.black-formatter"_ para a lista de extensões. Deve parecer o seguinte:
+2. Adicione _"ms-python.black-formatter"_ à lista de extensões. Deve ficar assim:
 
    ```json
    "extensions": [
@@ -157,148 +176,316 @@ Seu ambiente vem com extensões pré-instaladas. Você pode alterar quais extens
    ]
    ```
 
-   Essa string é o identificador de [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter&WT.mc_id=academic-77460-alfredodeza), uma extensão popular para formatação de código Python de acordo com as melhores práticas. Adicionando _"ms-python.black-formatter"_ na lista deia o Codespaces saber que essa extensão deve ser pré instalada ao iniciar.
+   Essa sequência é o identificador único do [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter&WT.mc_id=academic-77460-alfredodeza), uma extensão popular para formatar o código Python de acordo com as melhores práticas. Adicionar o identificador _"ms-python.black-formatter"_ à lista informa ao Codespaces que essa extensão deve ser pré-instalada ao iniciar.
 
-   Lembrete: Quando você muda algo no arquivo JSON, uma janela vai aparecer após salvar.
+   Lembrete: Quando você alterar qualquer configuração no arquivo JSON, uma caixa aparecerá após salvar.
 
    ![Recriando Codespace](https://github.com/microsoft/codespaces-teaching-template-py/raw/main/images/Codespace_rebuild.png)
 
-   Clique em rebuild. Espere seu Codespace reconstruir seu ambiente.
+   Clique em Rebuild (em português, "Reconstruir"). Aguarde o seu Codespace reconstruir o ambiente do VS Code.
 
-Ache o identificador único de uma extensão:
+Para encontrar o identificador único de uma extensão:
 
-- Navegue até a página da extensão, por exemplo [https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter&WT.mc_id=academic-77460-alfredodeza)
-- Localize o campo *Unique Identifier* em **More info** no lado direito.
+- Acesse a página da extensão, por exemplo [https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter&WT.mc_id=academic-77460-alfredodeza)
+- Localize o campo *Identificador Único* na seção **Mais informações** no lado direito.
+
+
 
 </details>
+
+## Faça alterações usando o Copilot
+
+Vamos seguir algumas etapas para fazer alterações no código usando o Copilot. Essa é uma ótima maneira de aprender a usar o Copilot e obter sugestões úteis para um desenvolvimento mais rápido. Observe que essas são soluções sugeridas, e aconselhamos que você as revise para garantir que sejam aplicáveis ao seu código.
+
+Este repositório do Codespaces já tem a extensão Copilot habilitada. Verifique se sua conta tem acesso a ela. Se você não tiver acesso, pode [solicitar](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) e, em seguida, instale a extensão [aqui](https://aka.ms/get-copilot). Se você for estudante, pode obter o Copilot gratuitamente [seguindo estas instruções](https://techcommunity.microsoft.com/t5/desenvolvedores-br/como-obter-github-copilot-gratuito-para-estudantes-e-professores/ba-p/3828780?WT.mc_id=academic-97170-cyzanon).
+
+Para garantir que o Copilot esteja funcionando corretamente, siga estas etapas:
+
+1. Verifique se o Copilot está ativado navegando na guia de extensões em seu Codespace e verificando o status.
+2. Se o status estiver inativo, reconstrua o Codespace e habilite a extensão para garantir que ela seja ativada.
+
+🤔 Curioso? Assista ao seguinte vídeo em que explicamos todos os detalhes:
+
+[![Assisted AI Coding with GitHub Copilot](https://img.youtube.com/vi/9c7SSHbzD80/0.jpg)](https://youtu.be/9c7SSHbzD80 "Assisted AI Coding with GitHub Copilot")
+
+<details>
+<summary><b>Utilizando o Copilot</b></summary>
+
+### Passo 1: Alterar o HTML para torná-lo interativo
+
+Abra o arquivo [index.html](./webapp/static/index.html) e exclua a seguinte linha:
+
+```html
+<button onclick="window.location.href='/docs'" type="button" class="btn btn-info">Try it out</button>
+```
+
+Agora, adicione um comentário para que o Copilot possa gerar código para você:
+
+```html
+<!-- criar um formulário interativo com entrada de texto e botão, e adicionar um ouvinte de evento ao botão para enviar uma solicitação POST para o endpoint /generate e exibir a resposta em uma div com id "result" -->
+```
+
+Isso deve ser suficiente para o Copilot gerar código para você depois de pressionar `Enter` (ou `Return`). 
+Se não for o caso, use `Ctrl+Enter` para obter várias sugestões e escolha aquela que se encaixa melhor no código abaixo.
+Lembre-se de que é possível que o Copilot não gere o trecho exato! Nesse caso, digite ou substitua a sugestão para o código abaixo.
+O código gerado deve ser semelhante a este:
+
+```html
+              <form id="form">
+                <input type="text" id="input" placeholder="Digite o texto aqui">
+                <button type="button" id="button" class="btn btn-info">Gerar</button>
+              </form>
+              <div id="result"></div>
+              <script>
+               
+
+ const button = document.getElementById('button');
+                const form = document.getElementById('form');
+                button.addEventListener('click', async (event) => {
+                  event.preventDefault();
+                  const input = document.getElementById('input').value;
+                  const response = await fetch('/generate', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: input })
+                  });
+                  const data = await response.json();
+                  const result = document.getElementById('result');
+                  result.innerHTML = data.result;
+                });
+              </script>
+```
+
+Execute a aplicação e verifique se o formulário aparece.
+
+### Passo 2: Atualizar o HTML para corrigir um bug
+
+O código gerado introduziu alguns problemas. Primeiro, o botão não está funcionando. Segundo, o formulário não está usando a chave JSON correta ao enviar o texto para o endpoint da API. Vamos corrigir isso.
+
+Altere o corpo da solicitação para usar a chave `length` em vez de `text`:
+
+```javascript
+body: JSON.stringify({ length: input })
+```
+
+Agora, vamos alterar o `innerHTML` para usar a chave `token` em vez de `result`:
+
+```javascript
+result.innerHTML = data.token;
+```
+
+Execute a aplicação e verifique se o formulário está funcionando agora.
+
+### Passo 3: Alterar o formulário para usar um menu suspenso
+
+Atualmente, o formulário aceita qualquer texto como entrada. Vamos alterá-lo para usar um menu suspenso. Adicione um comentário para que o Copilot possa gerar código para você. Exclua a seguinte linha:
+
+```html
+<input type="text" id="input" placeholder="Digite o texto aqui">
+```
+
+E adicione o seguinte comentário para que o Copilot possa gerar código para você:
+
+```html
+<!-- criar uma entrada com um menu suspenso para selecionar entre os seguintes valores: 5, 10, 15, 20 -->
+```
+
+O código gerado agora deve ficar assim:
+
+```html
+<select id="input">
+   <option value="5">5</option>
+   <option value="10">10</option>
+   <option value="15">15</option>
+   <option value="20">20</option>
+</select>
+```
+
+Execute a aplicação novamente para verificar se o menu suspenso está funcionando corretamente.
+   
+### Passo 4: Adicionar um novo ponto de extremidade (endpoint) à API
+
+Agora vamos adicionar uma nova funcionalidade à API. Adicione um novo ponto de extremidade (endpoint) à API que aceite um texto e retorne uma lista de tokens. Adicione o seguinte comentário para que o Copilot possa gerar um modelo Pydantic para você:
+
+```python
+# Crie um modelo Pydantic que aceita um corpo JSON com um único campo chamado "text", que é uma string
+```
+
+O modelo gerado deve ficar assim:
+
+```python
+class Text(BaseModel):
+    text: str
+```
+
+Em seguida, adicione o seguinte comentário para que o Copilot possa adicionar um novo endpoint:
+
+```python
+# Crie um endpoint FastAPI que aceita uma solicitação POST com um corpo JSON contendo um único campo chamado "text" e retorna um checksum do texto
+```
+
+O código gerado deve ficar assim:
+
+```python
+@app.post('/checksum')
+def checksum(body: Text):
+    """
+    Gere um checksum do texto. Exemplo de corpo de solicitação POST:
+
+    {
+        "text": "Olá mundo!"
+    }
+    """
+    checksum = base64.b64encode(os.urandom(64))[:20].decode('utf-8')
+    return {'checksum': checksum}
+```
+
+O código gerado fará com que a aplicação falhe. Isso ocorre porque os módulos `base64` e `os` não estão sendo importados. Adicione as seguintes linhas no início do arquivo:
+
+```python
+import base64
+import os
+```
+
+Por fim, verifique se o novo ponto de extremidade (endpoint) está funcionando acessando a página `/docs` e testando o novo endpoint.
+
+Parabéns! Você usou o Copilot não apenas para gerar código, mas também para fazer isso de forma interativa e divertida. Agora você pode usar o Copilot para gerar código em qualquer um de seus projetos, incluindo escrever documentação, gerar modelos e muito mais! Até mesmo partes deste README foram geradas usando sugestões do Copilot 🧐
+   
+   </details>
 
 ## 🚀 Próximos passos
 
-Leve este aplicativo de API para o próximo nível e implante-o na nuvem! Para este desafio, você usará uma opção de deploy gratuita com Azure e GitHub Actions para a automação.
+Leve essa aplicação da API para o próximo nível e faça a sua publicação na nuvem! Para este desafio de aprendizado, você usará uma opção para publicar GRATUITAMENTE no Azure e o GitHub Actions para a automação.
 
-Antes de continuar, certifique-se de ter uma conta do Azure pronta. Selecione qualquer um dos seguintes:
+Antes de continuar, certifique-se de ter uma conta no Azure pronta. Selecione uma das opções a seguir:
 
-- [Faça login em sua conta do Azure](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
-- [Crie (sem Cartão) uma conta Azure For Students](https://azure.microsoft.com/free/students/?WT.mc_id=academic-77460-alfredodeza)
-- [Crie uma conta Azure](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
+- [Faça login na sua conta do Azure](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
+- [Crie uma conta no Azure For Students (sem necessidade de cartão de crédito)](https://azure.microsoft.com/free/students/?WT.mc_id=academic-77460-alfredodeza)
+- [Crie uma nova conta no Azure](https://azure.microsoft.com/en-US/?WT.mc_id=academic-77460-alfredodeza)
 
-Há alguns passos envolvidos, então certifique-se de tudo!
+Há algumas etapas envolvidas, então certifique-se de fazer tudo corretamente!
 
 <details>
-<summary><b>Crie um Azure App Service</b></summary>
+<summary><b>Criar um Serviço de Aplicativo do Azure</b></summary>
 
-Agora, você vai configurar o deploy automático do aplicativo usando o Azure mais GitHub Actions! No entanto, primeiro você precisa configurar alguns serviços do Azure.
+Agora você irá configurar a publicação automática da aplicação usando o Azure e o GitHub Actions! No entanto, primeiro você precisa configurar alguns serviços do Azure.
 
 1. Abra o [Azure Cloud Shell](https://shell.azure.com/?WT.mc_id=academic-77460-alfredodeza).
-1. Use o shell Bash (não PowerShell!) para esses passos.
-1. Se mostra "You have no storage mounted", selecione a inscrição em sua conta e clique "Create storage". O shell da Cloud usa o recurso de armazenamento para armazenar os dados gerados durante a seção da shell.
-1. Cria uma *Resource Group* que agrupará os diferentes recursos do Azure usados para o aplicativo:
+2. Use o Bash Shell (não o PowerShell!) para executar estas etapas.
+3. Se aparecer a mensagem "You have no storage mounted", selecione uma assinatura em sua conta e clique em "Create storage". O Cloud Shell usará esse recurso de armazenamento para armazenar os dados gerados durante suas sessões no shell.
+4. Crie um *Grupo de Recursos* que agrupará os diferentes recursos do Azure usados pela aplicação:
 ```
 az group create --name demo-fastapi --location "East US"
 ```
-1. Você verá uma resposta JSON com detalhes sobre o recurso recém-criado, para este comando e todos os comandos que se seguem.
-1. Crie um *App Service Plan* sem custo:
+5. Você verá uma resposta em JSON com detalhes sobre o novo recurso criado, para este comando e todos os comandos que seguem.
+6. Crie o *Plano de Serviço de Aplicativo* **GRATUITO**:
 ```
 az appservice plan create --name "demo-fastapi" --resource-group demo-fastapi --is-linux --sku FREE
 ```
-1. Crie um identificador aleatório para um nome de webapp unico:
+7. Crie um identificador aleatório para um nome exclusivo do web app:
 ```
 let "randomIdentifier=$RANDOM*$RANDOM"
 ```
-1. Crie *Web App Service* com um recipiente de espaço reservado usando a variável `randomIdentifier`:
+8. Crie o *Serviço de Aplicativo da Web* com um contêiner reservado usando a variável `randomIdentifier` criada anteriormente:
 ```
 az webapp create --name "demo-fastapi-$randomIdentifier" --resource-group demo-fastapi --plan demo-fastapi --runtime "PYTHON:3.9"
 ```
-1. Vá ao Azure portal [App Services list](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) e confirme que seu novo serviço foi criado e listado.
+9. Acesse a lista de [Serviços de Aplicativos](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) no portal do Azure e verifique se o serviço recém-criado está listado.
 
 </details>
 
 
 <details>
-<summary><b>Crie um Azure Service Principal</b></summary>
+<summary><b>Criando um Azure Service Principal</b></summary>
 
-Em seguida, crie um Azure Service Principal, que é um tipo especial de conta que tem permissões necessárias para autenticar do GitHub para o Azure:
-  
-1. Encontre a ID de sua Assinatura Azure [no portal do Azure](https://portal.azure.com/#view/Microsoft_Azure_Billing/SubscriptionsBlade?WT.mc_id=academic-77460-alfredodeza) ou [ao seguir esse guia](https://learn.microsoft.com/azure/azure-portal/get-subscription-tenant-id?WT.mc_id=academic-77460-alfredodeza).
-1. Crie um Service Principal com o cargo de "contributor" que é permitido fazer mudanças em recusos nessa inscrições. Substitua $AZURE_SUBSCRIPTION_ID com o ID que você acho no passo 1:
+A seguir, crie um Azure Service Principal, que é um tipo especial de conta que possui as permissões necessárias para autenticação do GitHub no Azure:
+
+1. Encontre o ID de sua assinatura do Azure
+
+ [no portal do Azure](https://portal.azure.com/#view/Microsoft_Azure_Billing/SubscriptionsBlade?WT.mc_id=academic-77460-alfredodeza) ou [seguindo este guia](https://learn.microsoft.com/azure/azure-portal/get-subscription-tenant-id?WT.mc_id=academic-77460-alfredodeza).
+2. Crie um Azure Service Principal com a função "contributor" que está autorizada a fazer alterações em todos os recursos dessa assinatura. Substitua $AZURE_SUBSCRIPTION_ID pelo ID encontrado no passo 1 e execute o seguinte comando:
 
 ```
 az ad sp create-for-rbac  --sdk-auth --name "github-deployer" --role contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID
 ```
 
-1. Pegue o output e coloque como [segredo de repositório do GitHub](/../../settings/secrets/actions/new) com o nome `AZURE_CREDENTIALS`. (_Se esse link não funcionar, certifique-se de que você está lendo isso em sua própria cópia do repo, não no modelo original._)
+3. Copie a saída e adicione-a como um [segredo do repositório do GitHub](/../../settings/secrets/actions/new) com o nome `AZURE_CREDENTIALS`. (_Se esse link não funcionar, certifique-se de que você está lendo isso em sua própria cópia do repositório, não no modelo original._)
 
 </details>
 
 <details>
 
-<summary><b>Configure GitHub Actions</b></summary>
+<summary><b>Configurar o GitHub Actions</b></summary>
 
-Agora que você tem todos os recursos do Azure criados, você precisa atualizar o arquivo de workflow do GitHub Action com o nome do seu webapp.
+Agora que você criou todos os recursos do Azure, precisa atualizar o arquivo de fluxo de trabalho do GitHub Actions com o nome do seu web app.
 
-1. Ache o nome do seu arquivo. Deve parecer com `demo-fastapi-97709018` com um numero randômico na frente, você pode encontrar no portal Azure e comando de Cloud Shell.
-2. Abra o arquivo [.github/workflows/web_app.yml](/../../edit/main/.github/workflows/web_app.yml) e mude o valor `AZURE_WEBAPP_NAME` para o nome do seu aplicativo.
-3. Commite e push as mudanças do repositório do Github:
+1. Encontre o nome do seu aplicativo. Deve ser algo como `demo-fastapi-97709018`, mas com um número aleatório diferente no final, e você pode encontrá-lo no portal do Azure ou nos comandos do Cloud Shell.
+2. Abra o arquivo [.github/workflows/web_app.yml](/../../edit/main/.github/workflows/web_app.yml) e atualize o valor de `AZURE_WEBAPP_NAME` com o nome do seu aplicativo.
+3. Faça o commit e envie as alterações para o repositório do GitHub:
 
 ```
 git add .github/workflows/web_app.yml
-git commit -m "Updating workflow file"
+git commit -m "Atualizando arquivo de fluxo de trabalho"
 git push
 ```
 
 </details>
 
 <details>
-<summary><b>🏃 Dê deploy no app!</b></summary>
+<summary><b>🏃 Implante a sua aplicação!</b></summary>
 
-Antes de continuar, cheque o seguinte:
+Antes de continuar, verifique o seguinte:
 
-1. Foi criado um Azure Service Principal e salvou um [segredo de repositório](/../../settings/secrets/) como `AZURE_CREDENTIALS`.
-1. Foi criado um [App Service](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) com um nome válido e o site está disponível com um conteúdo estático.
+1. Você criou um Azure Service Principal e o salvou como um [segredo do repositório](/../../settings/secrets/) chamado `AZURE_CREDENTIALS`.
+2. Você criou um [Serviço de Aplicativo](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites) com um nome válido e o site já está disponível com o conteúdo estático padrão.
 
-Para deploy:
+Para implantar:
 
-1. Navegue até as [ações de repositório](/../../actions/workflows/web_app.yml). (_Se esse link não abrir o workflow "Build and deploy Python app", certifique-se de que você está lendo isso em sua própria cópia do repo._)
-1. Selecione _Run workflow_ e selecione o botão verde dentro da janela para rodar o workflow.
+1. Acesse [Actions do repositório](/../../actions/workflows/web_app.yml). (_Se esse link não abrir o fluxo de trabalho "Build and deploy Python app", certifique-se de que você está lendo isso em sua própria cópia do repositório._)
+2. Selecione _Run workflow_ e clique no botão verde dentro da janela pop-up para executar o fluxo de trabalho.
 
-**O deploy pode demorar brevemente**. Certifique-se de transmitir os logs no Azure Cloud Shell para verificar o progresso:
+**A implantação pode levar alguns minutos**. Certifique-se de transmitir os logs no Azure Cloud Shell para verificar o progresso:
 
 ```
 az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GROUP
 ```
 
-4. Depois rodar, visite seu website numa URL como `http://demo-fastapi-97709018.azurewebsites.net/`, onde o número aleatório é o seu número aleatório único. Você pode encontrar a URL do site no portal do Azure ou nos registros de implantação se você esqueceu o número.
-5. 🎉 Celebre um deploy bem sucedido! Agora você tem uma URL que você pode compartilhar com colegas de classe, amigos e familiares.
-  
-### Destrua seus recursos quando completo
+3. Após a conclusão da implantação, acesse seu site em uma URL
 
-Você provavelmente não quer manter este site em particular funcionando para sempre na nuvem, então você deve limpar seus recursos do Azure destruindo o grupo de recursos. Você pode fazê-lo no Azure Cloud Shell fazendo referência ao nome de grupo que você criou inicialmente ('demo-fastapi' nos exemplos):
+ como `http://demo-fastapi-97709018.azurewebsites.net/`, em que o número aleatório é o seu número aleatório exclusivo. Você pode encontrar a URL do site no portal do Azure ou nos logs de implantação, caso tenha esquecido o número.
+4. 🎉 Celebre um implantação bem-sucedida! Agora você tem uma URL que pode compartilhar com colegas, amigos e familiares.
+
+### Removendo os recursos quando concluído
+
+Provavelmente você não deseja manter esse site específico em execução na nuvem para sempre, então você deve limpar seus recursos do Azure excluindo o grupo de recursos. Você pode fazer isso no Azure Cloud Shell referenciando o nome do grupo que você criou inicialmente (`demo-fastapi` nos exemplos):
 
 ```
 az group delete --name demo-fastapi
 ```
 
-### Troubleshooting
+### Solução de problemas de implantação
 
-No Deploy, você pode encontrar erros ou problemas, seja na parte de automação dele (GitHub Actions) ou algo no deploy (Azure Web Apps).
+Ao fazer a implantação, você pode encontrar erros ou problemas, seja na automação (GitHub Actions) ou no destino de implantação (Azure Web Apps).
 
-Você pode verificar os registros do workflow do Github Actions selecionando o fluxo de trabalho mais recente da guia _Actions_. Encontre o primeiro passo que tem um ícone quebrado ao lado dele, e expanda esse passo para ver o que deu errado nele.
+Você pode verificar os logs do fluxo de trabalho do GitHub Actions selecionando o fluxo de trabalho mais recente na guia _Actions_. Localize a primeira etapa que tem um ícone quebrado ao lado e expanda essa etapa para ver o que deu errado.
 
-Se houver problemas com o deploy do Azure, verifique os registros no portal ou use o seguinte com o Azure CLI:
-  
+Se você tiver problemas com a implantação no Azure, verifique os logs no portal ou use o seguinte comando com o Azure CLI:
+
 ```
 az webapp log tail --name $AZURE_WEBAPP_NAME --resource-group $AZURE_RESOURCE_GROUP
 ```
 
-Atualize ambas as variáveis para combinar com seu ambiente.
+Atualize ambas as variáveis para corresponder ao seu ambiente.
 
 </details>
 
-## Other Resources
+## Outros Recursos
 
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Codespaces](https://github.com/features/codespaces)
-- [Use Dev containers localmente](https://github.com/Microsoft/vscode-remote-try-python)
+- [Use containers de desenvolvimento localmente](https://github.com/Microsoft/vscode-remote-try-python)
 
-### 🔎 Achou um porblema ou tem sugestões? 
-Nos ajude a fazer esse template melhor por [deixar nós sabermos e abirir uma issue!](/../../issues/new).
+### 🔎 Encontrou algum problema ou tem uma ideia de melhoria?
+Ajude-nos a melhorar este repositório de modelo [nos informando e abrindo uma issue!](https://github.com/education/codespaces-project-template-py/issues/new).
